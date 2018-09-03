@@ -1,0 +1,101 @@
+<html>
+<head>
+<style>
+table {
+    border-collapse: collapse;
+    width: 80%;
+
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    
+    
+}
+
+
+tr:first-child {background-color: yellow;}
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(odd) {background-color: lightblue;}
+
+#rcorners {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 10px; 
+    width: 80%;
+    text-align: center;
+    
+    
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript"> 
+          
+          
+
+          function dataLoad(){
+
+               var str = $("#caseNoteTextArea").val();
+              alert(str)
+              var regex = /<br\s*[\/]?>/gi;
+              str = str.replace(regex, "<br/>")
+              alert(str)
+              $("#caseNote").html(str);
+             
+
+              
+
+
+             }
+
+
+    </script>
+</head>
+<body onload="dataLoad()">
+<p align="right">back, home</p>
+<div id="rcorners" align="center">
+
+<h1 style="color:LightSalmon;align:center;">Service Request Number: </h1>
+
+<table align="center">  
+  <tr>
+    <td><b>Peter</b>:</td>
+    <td style="padding-left: 50px;"><div style="height: 300px; overflow:auto;" id="caseNote"> 
+    <div>
+    </td>
+    
+  </tr>
+  <tr>
+    <td><b>Peter</b>:</td>
+    <td style="padding-left: 50px;">Griffin</td>
+    
+  </tr>
+  <tr>
+    <td><b>Peter</b>:</td>
+    <td style="padding-left: 50px;">Swanson</td>
+   
+  </tr>
+  <tr>
+    <td><b>Peter</b>:</td>
+    <td style="padding-left: 50px;">Brown</td>
+   
+  </tr>
+</table>
+<textarea id="caseNoteTextArea"><br/>test<br/>Griffin<br>teretreter<br>fffffffff<br>fffffffffffffff ffffffffffffffffff ffffffffffffff fffffffffff fffffffffffff ffffffffffff fffffffffffff ffffffffffffffffffffff ffffffffffffffffffffff ffffffffffffffff fffffffffffff ffffffffff
+    <br/>test<br/>Griffin<br>teretreter<br>fffffffff<br>fffffffffffffff ffffffffffffffffff ffffffffffffff fffffffffff fffffffffffff ffffffffffff fffffffffffff ffffffffffffffffffffff ffffffffffffffffffffff ffffffffffffffff fffffffffffff ffffffffff
+    <br/>test<br/>Griffin<br>teretreter<br>fffffffff<br>fffffffffffffff ffffffffffffffffff ffffffffffffff fffffffffff fffffffffffff ffffffffffff fffffffffffff ffffffffffffffffffffff ffffffffffffffffffffff ffffffffffffffff fffffffffffff ffffffffff
+    <br/>test<br/>Griffin<br>teretreter<br>fffffffff<br>fffffffffffffff ffffffffffffffffff ffffffffffffff fffffffffff fffffffffffff ffffffffffff fffffffffffff ffffffffffffffffffffff ffffffffffffffffffffff ffffffffffffffff fffffffffffff ffffffffff
+    <br/>test<br/>Griffin<br>teretreter<br>fffffffff<br>fffffffffffffff ffffffffffffffffff ffffffffffffff fffffffffff fffffffffffff ffffffffffff fffffffffffff ffffffffffffffffffffff ffffffffffffffffffffff ffffffffffffffff fffffffffffff ffffffffff
+    <br/>test<br/>Griffin<br>teretreter<br>fffffffff<br>fffffffffffffff ffffffffffffffffff ffffffffffffff fffffffffff fffffffffffff ffffffffffff fffffffffffff ffffffffffffffffffffff ffffffffffffffffffffff ffffffffffffffff fffffffffffff ffffffffff
+    <br/>test<br/>Griffin<br>teretreter<br>fffffffff<br>fffffffffffffff ffffffffffffffffff ffffffffffffff fffffffffff fffffffffffff ffffffffffff fffffffffffff ffffffffffffffffffffff ffffffffffffffffffffff ffffffffffffffff fffffffffffff ffffffffff
+    <br/>test<br/>Griffin<br>teretreter<br>fffffffff<br>fffffffffffffff ffffffffffffffffff ffffffffffffff fffffffffff fffffffffffff ffffffffffff fffffffffffff ffffffffffffffffffffff ffffffffffffffffffffff ffffffffffffffff fffffffffffff ffffffffff
+    <br/>test<br/>Griffin<br>teretreter<br>fffffffff<br>fffffffffffffff ffffffffffffffffff ffffffffffffff fffffffffff fffffffffffff ffffffffffff fffffffffffff ffffffffffffffffffffff ffffffffffffffffffffff ffffffffffffffff fffffffffffff ffffffffff
+    <br/>test<br/>Griffin<br>teretreter<br>fffffffff<br>fffffffffffffff ffffffffffffffffff ffffffffffffff fffffffffff fffffffffffff ffffffffffff fffffffffffff ffffffffffffffffffffff ffffffffffffffffffffff ffffffffffffffff fffffffffffff ffffffffff
+    <br/>test<br/>Griffin<br>teretreter<br>fffffffff<br>fffffffffffffff ffffffffffffffffff ffffffffffffff fffffffffff fffffffffffff ffffffffffff fffffffffffff ffffffffffffffffffffff ffffffffffffffffffffff ffffffffffffffff fffffffffffff ffffffffff
+    <br/>test<br/>Griffin<br>teretreter<br>fffffffff<br>fffffffffffffff ffffffffffffffffff ffffffffffffff fffffffffff fffffffffffff ffffffffffff fffffffffffff ffffffffffffffffffffff ffffffffffffffffffffff ffffffffffffffff fffffffffffff ffffffffff</textarea>
+</div>
+
+</body>
+</html>

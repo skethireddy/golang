@@ -1,0 +1,11 @@
+
+Usage: gowsdl [options] myservice.wsdl
+https://github.com/hooklift/gowsdl
+
+# to run this program
+
+go build
+
+go to command prompt 
+SiebelMaintenacneSRProcess.exe <<propertied file path>
+eg: SiebelMaontenacneSRProcess.exe -configFile="d:\\Dev\\GoLang\\src\\GoWeb\\SiebelMaintenanceSRProcess\\config\\siebelMaintenanceSRProcess.config"

@@ -1,0 +1,15 @@
+ServiceRequestNumber=CA1529384811768
+SerialNumber=234
+Account=wqe
+Product=ARX CE
+Version=1.9.0
+Status=Open
+SubStatus=New
+Severity=2 - Site At Risk
+Source=CSP
+Email=dummy_dev5@f5.com
+Phone=345
+FirstName=sd
+LastName=asd
+ProblemStatement=asd
+CaseNote=asd

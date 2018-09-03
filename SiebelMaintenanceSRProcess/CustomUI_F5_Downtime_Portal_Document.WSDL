@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://siebel.com/CustomUI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://siebel.com/CustomUI">
+   <types>
+      <xsd:schema elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://siebel.com/CustomUI">
+         <xsd:element name="CreateSR_Input">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="InStr" minOccurs="0" type="xsd:string" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="CreateSR_Output">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="ErrorCode" minOccurs="0" type="xsd:string" />
+                  <xsd:element name="ErrorMsg" minOccurs="0" type="xsd:string" />
+                  <xsd:element name="Status" minOccurs="0" type="xsd:string" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="UpdateSR_Input">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="InStr" minOccurs="0" type="xsd:string" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="UpdateSR_Output">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="ErrorCode" minOccurs="0" type="xsd:string" />
+                  <xsd:element name="ErrorMsg" minOccurs="0" type="xsd:string" />
+                  <xsd:element name="SRStatus" minOccurs="0" type="xsd:string" />
+                  <xsd:element name="Status" minOccurs="0" type="xsd:string" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+   </types>
+   <message name="CreateSR_Input">
+      <part name="CreateSR_Input" element="tns:CreateSR_Input" />
+   </message>
+   <message name="CreateSR_Output">
+      <part name="CreateSR_Output" element="tns:CreateSR_Output" />
+   </message>
+   <message name="UpdateSR_Input">
+      <part name="UpdateSR_Input" element="tns:UpdateSR_Input" />
+   </message>
+   <message name="UpdateSR_Output">
+      <part name="UpdateSR_Output" element="tns:UpdateSR_Output" />
+   </message>
+   <portType name="F5_spcSR_spcDoc">
+      <operation name="CreateSR">
+         <input message="tns:CreateSR_Input" />
+         <output message="tns:CreateSR_Output" />
+      </operation>
+      <operation name="UpdateSR">
+         <input message="tns:UpdateSR_Input" />
+         <output message="tns:UpdateSR_Output" />
+      </operation>
+   </portType>
+   <binding name="F5_spcSR_spcDoc" type="tns:F5_spcSR_spcDoc">
+      <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+      <operation name="CreateSR">
+         <soap:operation soapAction="document/http://siebel.com/CustomUI:CreateSR" />
+         <input>
+            <soap:body use="literal" />
+         </input>
+         <output>
+            <soap:body use="literal" />
+         </output>
+      </operation>
+      <operation name="UpdateSR">
+         <soap:operation soapAction="document/http://siebel.com/CustomUI:UpdateSR" />
+         <input>
+            <soap:body use="literal" />
+         </input>
+         <output>
+            <soap:body use="literal" />
+         </output>
+      </operation>
+   </binding>
+   <service name="F5_spcDowntime_spcPostal_spcSR_spcDoc">
+      <port binding="tns:F5_spcSR_spcDoc" name="F5_spcSR_spcDoc">
+         <soap:address location="http://DV5SCM02.itlab.local/eai_enu/start.swe?SWEExtSource=WebService&amp;SWEExtCmd=Execute&amp;UserName=EAIUSER&amp;Password=EAIUSER!1" />
+      </port>
+   </service>
+</definitions>

@@ -1,0 +1,2227 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Siebel Maintenance</title>
+<link rel=stylesheet type="text/css" href="../static/css/apm-new.css">
+<link rel=stylesheet type="text/css" href="../static/css/siebel.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript"> 
+          
+          $(document).ready(function() {
+           //create arrays to store option and values
+           var  threeDNS = [
+                {display: "9.2.2", value: "9.2.2"},
+                {display: "9.0.0", value: "9.0.0"},
+                {display: "4.6.4", value: "4.6.4"},
+                {display: "4.6.3", value: "4.6.3"},
+                {display: "4.6.2", value: "4.6.2"},
+                {display: "4.6.1", value: "4.6.1"},
+                {display: "4.6.0", value: "4.6.0"},
+                {display: "4.5.9", value: "4.5.9"},
+                {display: "4.5.14", value: "4.5.14"},
+                {display: "4.5.13", value: "4.5.13"},
+                {display: "4.5.12", value: "4.5.12"},
+                {display: "4.5.11", value: "4.5.11"},
+                {display: "4.5.10", value: "4.5.10"},
+                {display: "4.5.0", value: "4.5.0"},
+                {display: "4.5 ptf8", value: "4.5 ptf8"},
+                {display: "4.5 ptf7", value: "4.5 ptf7"},
+                {display: "4.5 ptf6", value: "4.5 ptf6"},
+                {display: "4.5 ptf5", value: "4.5 ptf5"},
+                {display: "4.5 ptf4", value: "4.5 ptf4"},
+                {display: "4.5 ptf3", value: "4.5 ptf3"},
+                {display: "4.5 ptf2", value: "4.5 ptf2"},
+                {display: "4.5 ptf1", value: "4.5 ptf1"},
+                {display: "4.2.0", value: "4.2.0"},
+                {display: "4.2 ptf9", value: "4.2 ptf9"},
+                {display: "4.2 ptf8", value: "4.2 ptf8"},
+                {display: "4.2 ptf7", value: "4.2 ptf7"},
+                {display: "4.2 ptf6", value: "4.2 ptf6"},
+                {display: "4.2 ptf5", value: "4.2 ptf5"},
+                {display: "4.2 ptf4", value: "4.2 ptf4"},
+                {display: "4.2 ptf3", value: "4.2 ptf3"},
+                {display: "4.2 ptf2", value: "4.2 ptf2"},
+                {display: "4.2 ptf10", value: "4.2 ptf10"},
+                {display: "4.2 ptf1", value: "4.2 ptf1"},
+                {display: "4.0.1 ptf4", value: "4.0.1 ptf4"},
+                {display: "4.0.1 ptf3", value: "4.0.1 ptf3"},
+                {display: "4.0.1 ptf2", value: "4.0.1 ptf2"},
+                {display: "4.0.1 ptf1", value: "4.0.1 ptf1"},
+                {display: "4.0.1", value: "4.0.1"},
+                {display: "3.0.0", value: "3.0.0"},
+                {display: "3.0 ptf1", value: "3.0 ptf1"},
+                {display: "2.1.2 bind upg", value: "2.1.2 bind upg"},
+                {display: "2.1.2", value: "2.1.2"},
+                {display: "2.1.0", value: "2.1.0"},
+                {display: "2.1 ptf1", value: "2.1 ptf1"},
+                {display: "2.1 bind upg", value: "2.1 bind upg"},
+                {display: "2.0.1 ptf1", value: "2.0.1 ptf1"},
+                {display: "2.0.1", value: "2.0.1"},
+                {display: "2.0.0", value: "2.0.0"},
+                {display: "1.0.6", value: "1.0.6"},
+                {display: "1.0.4 ptf2", value: "1.0.4 ptf2"},
+                {display: "1.0.4 ptf1", value: "1.0.4 ptf1"}
+            ];
+
+            var ARX = [
+                {display: "6.4.0", value: "6.4.0"},
+                {display: "6.3.0", value: "6.3.0"},
+                {display: "6.2.0", value: "6.2.0"},
+                {display: "6.1.1", value: "6.1.1"},
+                {display: "6.1.0", value: "6.1.0"},
+                {display: "6.0.0", value: "6.0.0"},
+                {display: "5.2.2", value: "5.2.2"},
+                {display: "5.2.0", value: "5.2.0"},
+                {display: "5.1.9", value: "5.1.9"},
+                {display: "5.1.7", value: "5.1.7"},
+                {display: "5.1.5", value: "5.1.5"},
+                {display: "5.1.0", value: "5.1.0"},
+                {display: "5.0.7", value: "5.0.7"},
+                {display: "5.0.6", value: "5.0.6"},
+                {display: "5.0.5", value: "5.0.5"},
+                {display: "5.0.1", value: "5.0.1"},
+                {display: "5.0.0", value: "5.0.0"},
+                {display: "4.1.3", value: "4.1.3"},
+                {display: "4.1.1", value: "4.1.1"},
+                {display: "4.1.0", value: "4.1.0"},
+                {display: "4.0.1", value: "4.0.1"},
+                {display: "4.0.0", value: "4.0.0"},
+                {display: "3.2.3", value: "3.2.3"},
+                {display: "3.2.2", value: "3.2.2"},
+                {display: "3.2.1", value: "3.2.1"},
+                {display: "3.2.0", value: "3.2.0"},
+                {display: "3.1.0", value: "3.1.0"},
+                {display: "3.0.0", value: "3.0.0"},
+                {display: "2.7.1", value: "2.7.1"},
+                {display: "2.7.0", value: "2.7.0"},
+                {display: "2.6.0", value: "2.6.0"},
+                {display: "2.5.2", value: "2.5.2"},
+                {display: "2.5.1", value: "2.5.1"},
+                {display: "2.5.0", value: "2.5.0"},
+                {display: "2.4.3", value: "2.4.3"},
+                {display: "2.4.2", value: "2.4.2"},
+                {display: "2.4.1", value: "2.4.1"},
+                {display: "4.0.1", value: "4.0.1"},
+                {display: "3.0.0", value: "3.0.0"},
+                {display: "3.0 ptf1", value: "3.0 ptf1"},
+                {display: "2.1.2 bind upg", value: "2.1.2 bind upg"},
+                {display: "2.1.2", value: "2.1.2"},
+                {display: "2.1.0", value: "2.1.0"},
+                {display: "2.1 ptf1", value: "2.1 ptf1"},
+                {display: "2.1 bind upg", value: "2.1 bind upg"},
+                {display: "2.0.1 ptf1", value: "2.0.1 ptf1"},
+                {display: "2.0.1", value: "2.0.1"},
+                {display: "2.0.0", value: "2.0.0"},
+                {display: "1.0.6", value: "1.0.6"},
+                {display: "1.0.4 ptf2", value: "1.0.4 ptf2"},
+                {display: "1.0.4 ptf1", value: "1.0.4 ptf1"}
+            ];
+
+            var ARXCE = [
+                {display: "1.9.0", value: "1.9.0"},
+                {display: "1.8.1", value: "1.8.1"},
+                {display: "1.10.0", value: "1.10.0"},
+            ];
+
+            var ARXVE = [
+                {display: "6.4.0", value: "6.4.0"},
+                {display: "6.3.0", value: "6.3.0"},
+                {display: "6.2.0", value: "6.2.0"},
+                {display: "6.1.0", value: "6.1.0"},
+                {display: "6.0.0", value: "6.0.0"},
+                {display: "5.3.1", value: "5.3.1"},
+                {display: "5.3.0", value: "5.3.0"}
+            ];
+
+            var ASP = [
+                {display: "1.1.0", value: "1.1.0"},
+                {display: "1.0.0", value: "1.0.0"}
+            ];
+
+            var BigIp4x = [
+                {display: "9.2.2", value: "9.2.2"},
+                {display: "9.2.0", value: "9.2.0"},
+                {display: "9.1.1", value: "9.1.1"},
+                {display: "9.1.0", value: "9.1.0"},
+                {display: "9.0.5", value: "9.0.5"},
+                {display: "9.0.4", value: "9.0.4"},
+                {display: "9.0.3", value: "9.0.3"},
+                {display: "9.0.2", value: "9.0.2"},
+                {display: "9.0.1", value: "9.0.1"},
+                {display: "9.0.0", value: "9.0.0"},
+                {display: "4.6.4", value: "4.6.4"},
+                {display: "4.6.3", value: "4.6.3"},
+                {display: "4.6.2", value: "4.6.2"},
+                {display: "4.6.1", value: "4.6.1"},
+                {display: "4.6.0", value: "4.6.0"},
+                {display: "4.5.9", value: "4.5.9"},
+                {display: "4.5.14", value: "4.5.14"},
+                {display: "4.5.13", value: "4.5.13"},
+                {display: "4.5.12", value: "4.5.12"},
+                {display: "4.5.11", value: "4.5.11"},
+                {display: "4.5.10", value: "4.5.10"},
+                {display: "4.5.0", value: "4.5.0"},
+                {display: "4.5 ptf8", value: "4.5 ptf8"},
+                {display: "4.5 ptf7", value: "4.5 ptf7"},
+                {display: "4.5 ptf6", value: "4.5 ptf6"},
+                {display: "4.5 ptf5", value: "4.5 ptf5"},
+                {display: "4.5 ptf4", value: "4.5 ptf4"},
+                {display: "4.5 ptf3", value: "4.5 ptf3"},
+                {display: "4.5 ptf2", value: "4.5 ptf2"},
+                {display: "4.5 ptf1", value: "4.5 ptf1"},
+                {display: "4.2.0", value: "4.2.0"},
+                {display: "4.2 ptf9", value: "4.2 ptf9"},
+                {display: "4.2 ptf8", value: "4.2 ptf8"},
+                {display: "4.2 ptf7", value: "4.2 ptf7"},
+                {display: "4.2 ptf6", value: "4.2 ptf6"},
+                {display: "4.2 ptf5", value: "4.2 ptf5"},
+                {display: "4.2 ptf4", value: "4.2 ptf4"},
+                {display: "4.2 ptf3", value: "4.2 ptf3"},
+                {display: "4.2 ptf2", value: "4.2 ptf2"},
+                {display: "4.2 ptf10", value: "4.2 ptf10"},
+                {display: "4.2 ptf1", value: "4.2 ptf1"},
+                {display: "4.1.1 ptf6", value: "4.1.1 ptf6"},
+                {display: "4.1.1 ptf5", value: "4.1.1 ptf5"},
+                {display: "4.1.1 ptf4", value: "4.1.1 ptf4"},
+                {display: "4.1.1 ptf3", value: "4.1.1 ptf3"},
+                {display: "4.1.1 ptf2", value: "4.1.1 ptf2"},
+                {display: "4.1.1 ptf1", value: "4.1.1 ptf1"},
+                {display: "4.1.1", value: "4.1.1"},
+                {display: "4.1.0", value: "4.1.0"},
+                {display: "4.0.0", value: "4.0.0"},
+                {display: "4.0 ptf4", value: "4.0 ptf4"},
+                {display: "4.0 ptf34.0 ptf3"},
+                {display: "4.0 ptf24.0 ptf2"},
+                {display: "4.0 ptf14.0 ptf1"},
+                {display: "3.3.1 ptf63.3.1 ptf6"},
+                {display: "3.3.1 ptf53.3.1 ptf5"},
+                {display: "3.3.1 ptf43.3.1 ptf4"},
+                {display: "3.3.1 ptf33.3.1 ptf3"},
+                {display: "3.3.1 ptf23.3.1 ptf2"},
+                {display: "3.3.1 ptf13.3.1 ptf1"},
+                {display: "3.3.13.3.1"},
+                {display: "3.3.03.3.0"},
+                {display: "3.2.33.2.3"},
+                {display: "3.2.03.2.0"},
+                {display: "3.2 ptf13.2 ptf1"},
+                {display: "3.1.1 ptf13.1.1 ptf1"},
+                {display: "3.1.1 lb3.1.1 lb"},
+                {display: "3.1.1 ha3.1.1 ha"},
+                {display: "3.0 ptf43.0 ptf4"},
+                {display: "3.0 ptf33.0 ptf3"},
+                {display: "3.0 ptf23.0 ptf2"},
+                {display: "3.0 ptf13.0 ptf1"},
+                {display: "3.0 lb3.0 lb"},
+                {display: "3.0 ha3.0 ha"},
+                {display: "2.1.4 ptf12.1.4 ptf1"},
+                {display: "2.1.4 lb2.1.4 lb"},
+                {display: "2.1.4 ha2.1.4 ha"},
+                {display: "2.1.3 ptf42.1.3 ptf4"},
+                {display: "2.1.3 ptf32.1.3 ptf3"},
+                {display: "2.1.3 ptf12.1.3 ptf1"},
+                {display: "2.1.3 lb2.1.3 lb"},
+                {display: "2.1.3 ha2.1.3 ha"},
+                {display: "2.1.2 ptf22.1.2 ptf2"},
+                {display: "2.1.2 ptf12.1.2 ptf1"},
+                {display: "2.1.2 lb2.1.2 lb"},
+                {display: "2.1.2 ha2.1.2 ha"},
+                {display: "2.1.1 lb2.1.1 lb"},
+                {display: "2.1.1 ha2.1.1 ha"},
+                {display: "2.0.4 ptf32.0.4 ptf3"},
+                {display: "2.0.4 ptf22.0.4 ptf2"},
+                {display: "2.0.4 ptf12.0.4 ptf1"},
+                {display: "2.0.4 lb2.0.4 lb"},
+                {display: "2.0.4 ha2.0.4 ha"},
+                {display: "2.0.1 ptf42.0.1 ptf4"},
+                {display: "2.0.1 ptf32.0.1 ptf3"},
+                {display: "2.0.1 ptf22.0.1 ptf2"},
+                {display: "2.0.1 ptf12.0.1 ptf1"},
+                {display: "2.0 ptf32.0 ptf3"}
+            ];
+
+            var BigIpAam = [
+                {display: "13.1.0", value: "13.1.0"},
+                {display: "13.0.0", value: "13.0.0"},
+                {display: "12.1.3", value: "12.1.3"},
+                {display: "12.1.2", value: "12.1.2"},
+                {display: "12.1.1", value: "12.1.1"},
+                {display: "12.1.0", value: "12.1.0"},
+                {display: "12.0.0", value: "12.0.0"},
+                {display: "11.6.3", value: "11.6.3"},
+                {display: "11.6.2", value: "11.6.2"},
+                {display: "11.6.1", value: "11.6.1"},
+                {display: "11.6.0", value: "11.6.0"},
+                {display: "11.5.5", value: "11.5.5"},
+                {display: "11.5.4", value: "11.5.4"},
+                {display: "11.5.3", value: "11.5.3"},
+                {display: "11.5.2", value: "11.5.2"},
+                {display: "11.5.1", value: "11.5.1"},
+                {display: "11.5.0", value: "11.5.0"},
+                {display: "11.4.1", value: "11.4.1"},
+                {display: "11.4.0", value: "11.4.0"}
+            ];
+
+            var BigIpAamVe = [
+                {display: "13.1.0", value: "13.1.0"},
+                {display: "13.0.0", value: "13.0.0"},
+                {display: "12.1.3", value: "12.1.3"},
+                {display: "12.1.2", value: "12.1.2"},
+                {display: "12.1.1", value: "12.1.1"},
+                {display: "12.1.0", value: "12.1.0"},
+                {display: "12.0.0", value: "12.0.0"},
+                {display: "11.6.3", value: "11.6.3"},
+                {display: "11.6.2", value: "11.6.2"},
+                {display: "11.6.1", value: "11.6.1"},
+                {display: "11.6.0", value: "11.6.0"},
+                {display: "11.5.5", value: "11.5.5"},
+                {display: "11.5.4", value: "11.5.4"},
+                {display: "11.5.3", value: "11.5.3"},
+                {display: "11.5.2", value: "11.5.2"},
+                {display: "11.5.1", value: "11.5.1"},
+                {display: "11.5.0", value: "11.5.0"},
+                {display: "11.4.1", value: "11.4.1"},
+                {display: "11.4.0", value: "11.4.0"}
+            ];
+
+            var BigIpAfm = [
+                {display: "13.1.0", value: "13.1.0"},
+                {display: "13.0.0", value: "13.0.0"},
+                {display: "12.1.3", value: "12.1.3"},
+                {display: "12.1.2", value: "12.1.2"},
+                {display: "12.1.1", value: "12.1.1"},
+                {display: "12.1.0", value: "12.1.0"},
+                {display: "12.0.0", value: "12.0.0"},
+                {display: "11.6.3", value: "11.6.3"},
+                {display: "11.6.2", value: "11.6.2"},
+                {display: "11.6.1", value: "11.6.1"},
+                {display: "11.6.0", value: "11.6.0"},
+                {display: "11.5.5", value: "11.5.5"},
+                {display: "11.5.4", value: "11.5.4"},
+                {display: "11.5.3", value: "11.5.3"},
+                {display: "11.5.2", value: "11.5.2"},
+                {display: "11.5.1", value: "11.5.1"},
+                {display: "11.5.0", value: "11.5.0"},
+                {display: "11.4.1", value: "11.4.1"},
+                {display: "11.4.0", value: "11.4.0"},
+                {display: "11.3.0", value: "11.3.0"}
+            ];
+
+            var BigIpAfmVe = [
+                {display: "13.1.0", value: "13.1.0"},
+                {display: "13.0.0", value: "13.0.0"},
+                {display: "12.1.3", value: "12.1.3"},
+                {display: "12.1.2", value: "12.1.2"},
+                {display: "12.1.1", value: "12.1.1"},
+                {display: "12.1.0", value: "12.1.0"},
+                {display: "12.0.0", value: "12.0.0"},
+                {display: "11.6.3", value: "11.6.3"},
+                {display: "11.6.2", value: "11.6.2"},
+                {display: "11.6.1", value: "11.6.1"},
+                {display: "11.6.0", value: "11.6.0"},
+                {display: "11.5.5", value: "11.5.5"},
+                {display: "11.5.4", value: "11.5.4"},
+                {display: "11.5.3", value: "11.5.3"},
+                {display: "11.5.2", value: "11.5.2"},
+                {display: "11.5.1", value: "11.5.1"},
+                {display: "11.5.0", value: "11.5.0"},
+                {display: "11.4.1", value: "11.4.1"},
+                {display: "11.4.0", value: "11.4.0"},
+                {display: "11.3.0", value: "11.3.0"}
+            ];
+
+            var BigIpApm = [
+                {display: " 13.1.0  ", value: " 13.1.0  "},
+                {display: " 13.0.0  ", value: " 13.0.0  "},
+                {display: " 12.1.3  ", value: " 12.1.3  "},
+                {display: " 12.1.2  ", value: " 12.1.2  "},
+                {display: " 12.1.1  ", value: " 12.1.1  "},
+                {display: " 12.1.0  ", value: " 12.1.0  "},
+                {display: " 12.0.0  ", value: " 12.0.0  "},
+                {display: " 11.6.3  ", value: " 11.6.3  "},
+                {display: " 11.6.2  ", value: " 11.6.2  "},
+                {display: " 11.6.1  ", value: " 11.6.1  "},
+                {display: " 11.6.0  ", value: " 11.6.0  "},
+                {display: " 11.5.5  ", value: " 11.5.5  "},
+                {display: " 11.5.4  ", value: " 11.5.4  "},
+                {display: " 11.5.3  ", value: " 11.5.3  "},
+                {display: " 11.5.2  ", value: " 11.5.2  "},
+                {display: " 11.5.1  ", value: " 11.5.1  "},
+                {display: " 11.5.0  ", value: " 11.5.0  "},
+                {display: " 11.4.1  ", value: " 11.4.1  "},
+                {display: " 11.4.0  ", value: " 11.4.0  "},
+                {display: " 11.2.0  ", value: " 11.2.0  "},
+                {display: " 11.2.1  ", value: " 11.2.1  "},
+                {display: " 11.3.0  ", value: " 11.3.0  "},
+                {display: " 11.1.0  ", value: " 11.1.0  "},
+                {display: " 11.0.0  ", value: " 11.0.0  "},
+                {display: " 10.2.4  ", value: " 10.2.4  "},
+                {display: " 10.2.3  ", value: " 10.2.3  "},
+                {display: " 10.2.2  ", value: " 10.2.2  "},
+                {display: " 10.2.1  ", value: " 10.2.1  "},
+                {display: " 10.2.0  ", value: " 10.2.0  "},
+                {display: " 10.1.0  ", value: " 10.1.0  "}
+            ];
+
+            var BigIpApmVe = [
+                {display: "13.1.0", value: "13.1.0"},
+                {display: "13.0.0", value: "13.0.0"},
+                {display: "12.1.3", value: "12.1.3"},
+                {display: "12.1.2", value: "12.1.2"},
+                {display: "12.1.1", value: "12.1.1"},
+                {display: "12.1.0", value: "12.1.0"},
+                {display: "12.0.0", value: "12.0.0"},
+                {display: "11.6.3", value: "11.6.3"},
+                {display: "11.6.2", value: "11.6.2"},
+                {display: "11.6.1", value: "11.6.1"},
+                {display: "11.6.0", value: "11.6.0"},
+                {display: "11.5.5", value: "11.5.5"},
+                {display: "11.5.4", value: "11.5.4"},
+                {display: "11.5.3", value: "11.5.3"},
+                {display: "11.5.2", value: "11.5.2"},
+                {display: "11.5.1", value: "11.5.1"},
+                {display: "11.5.0", value: "11.5.0"},
+                {display: "11.4.1", value: "11.4.1"},
+                {display: "11.4.0", value: "11.4.0"},
+                {display: "11.3.0", value: "11.3.0"},
+                {display: "11.2.1", value: "11.2.1"},
+                {display: "11.2.0", value: "11.2.0"},
+                {display: "11.1.0", value: "11.1.0"},
+                {display: "11.0.0", value: "11.0.0"},
+                {display: "10.2.4", value: "10.2.4"},
+                {display: "10.2.3", value: "10.2.3"},
+                {display: "10.2.2", value: "10.2.2"},
+                {display: "10.2.1", value: "10.2.1"}
+            ];
+
+             var BigIpAppConn = [
+                {display: "1.1.0", value: "1.1.0" },
+                {display: "1.0.1", value: "1.0.1" },
+                {display: "1.0.0", value: "1.0.0" }
+            ];
+            var BigIpAsm = [
+                {display: "13.1.0", value: "13.1.0"},
+                {display: "13.0.0", value: "13.0.0"},
+                {display: "12.1.3", value: "12.1.3"},
+                {display: "12.1.2", value: "12.1.2"},
+                {display: "12.1.1", value: "12.1.1"},
+                {display: "12.1.0", value: "12.1.0"},
+                {display: "12.0.0", value: "12.0.0"},
+                {display: "11.6.3", value: "11.6.3"},
+                {display: "11.6.2", value: "11.6.2"},
+                {display: "11.6.1", value: "11.6.1"},
+                {display: "11.6.0", value: "11.6.0"},
+                {display: "11.5.5", value: "11.5.5"},
+                {display: "11.5.4", value: "11.5.4"},
+                {display: "11.5.3", value: "11.5.3"},
+                {display: "11.5.2", value: "11.5.2"},
+                {display: "11.5.1", value: "11.5.1"},
+                {display: "11.5.0", value: "11.5.0"},
+                {display: "11.4.1", value: "11.4.1"},
+                {display: "11.4.0", value: "11.4.0"},
+                {display: "11.3.0", value: "11.3.0"},
+                {display: "11.2.1", value: "11.2.1"},
+                {display: "11.2.0", value: "11.2.0"},
+                {display: "11.1.0", value: "11.1.0"},
+                {display: "11.0.0", value: "11.0.0"},
+                {display: "10.2.4", value: "10.2.4"},
+                {display: "10.2.3", value: "10.2.3"},
+                {display: "10.2.2", value: "10.2.2"},
+                {display: "10.2.1", value: "10.2.1"},
+                {display: "10.2.0", value: "10.2.0"},
+                {display: "10.1.0", value: "10.1.0"},
+                {display: "10.0.1", value: "10.0.1"},
+                {display: "10.0.0", value: "10.0.0"},
+                {display: "9.4.8", value: "9.4.8"},
+                {display: "9.4.7", value: "9.4.7"},
+                {display: "9.4.6", value: "9.4.6"},
+                {display: "9.4.5", value: "9.4.5"},
+                {display: "9.4.4", value: "9.4.4"},
+                {display: "9.4.3", value: "9.4.3"},
+                {display: "9.4.2", value: "9.4.2"},
+                {display: "9.4.1", value: "9.4.1"},
+                {display: "9.4.0", value: "9.4.0"},
+                {display: "9.3.1", value: "9.3.1"},
+                {display: "9.3.0", value: "9.3.0"},
+                {display: "9.2.5", value: "9.2.5"},
+                {display: "9.2.4", value: "9.2.4"},
+                {display: "9.2.3", value: "9.2.3"},
+                {display: "9.2.2", value: "9.2.2"},
+                {display: "9.2.0", value: "9.2.0"}
+            ];
+            
+            var BigIpAsmVe = [
+                {display: "13.1.0", value: "13.1.0"},
+                {display: "13.0.0", value: "13.0.0"},
+                {display: "12.1.3", value: "12.1.3"},
+                {display: "12.1.2", value: "12.1.2"},
+                {display: "12.1.1", value: "12.1.1"},
+                {display: "12.1.0", value: "12.1.0"},
+                {display: "12.0.0", value: "12.0.0"},
+                {display: "11.6.3", value: "11.6.3"},
+                {display: "11.6.2", value: "11.6.2"},
+                {display: "11.6.1", value: "11.6.1"},
+                {display: "11.6.0", value: "11.6.0"},
+                {display: "11.5.5", value: "11.5.5"},
+                {display: "11.5.4", value: "11.5.4"},
+                {display: "11.5.3", value: "11.5.3"},
+                {display: "11.5.2", value: "11.5.2"},
+                {display: "11.5.1", value: "11.5.1"},
+                {display: "11.5.0", value: "11.5.0"},
+                {display: "11.4.1", value: "11.4.1"},
+                {display: "11.4.0", value: "11.4.0"},
+                {display: "11.3.0", value: "11.3.0"},
+                {display: "11.2.1", value: "11.2.1"},
+                {display: "11.2.0", value: "11.2.0"},
+                {display: "11.1.0", value: "11.1.0"},
+                {display: "11.0.0", value: "11.0.0"},
+                {display: "10.2.4", value: "10.2.4"}
+            ];
+
+            var BigIpAvr = [
+                {display: "13.1.0", value: "13.1.0"},
+                {display: "13.0.0", value: "13.0.0"},
+                {display: "12.1.3", value: "12.1.3"},
+                {display: "12.1.2", value: "12.1.2"},
+                {display: "12.1.1", value: "12.1.1"},
+                {display: "12.1.0", value: "12.1.0"},
+                {display: "12.0.0", value: "12.0.0"},
+                {display: "11.6.3", value: "11.6.3"},
+                {display: "11.6.2", value: "11.6.2"},
+                {display: "11.6.1", value: "11.6.1"},
+                {display: "11.6.0", value: "11.6.0"},
+                {display: "11.5.5", value: "11.5.5"},
+                {display: "11.5.4", value: "11.5.4"},
+                {display: "11.5.3", value: "11.5.3"},
+                {display: "11.5.2", value: "11.5.2"},
+                {display: "11.5.1", value: "11.5.1"},
+                {display: "11.5.0", value: "11.5.0"},
+                {display: "11.4.1", value: "11.4.1"},
+                {display: "11.4.0", value: "11.4.0"},
+                {display: "11.3.0", value: "11.3.0"},
+                {display: "11.2.1", value: "11.2.1"},
+                {display: "11.2.0", value: "11.2.0"},
+                {display: "11.1.0", value: "11.1.0"},
+                {display: "11.0.0", value: "11.0.0"}
+            ];
+
+            var BigIpAveVe = [
+                {display: "13.1.0", value: "13.1.0"},
+                {display: "13.0.0", value: "13.0.0"},
+                {display: "12.1.3", value: "12.1.3"},
+                {display: "12.1.2", value: "12.1.2"},
+                {display: "12.1.1", value: "12.1.1"},
+                {display: "12.1.0", value: "12.1.0"},
+                {display: "12.0.0", value: "12.0.0"},
+                {display: "11.6.3", value: "11.6.3"},
+                {display: "11.6.2", value: "11.6.2"},
+                {display: "11.6.1", value: "11.6.1"},
+                {display: "11.6.0", value: "11.6.0"},
+                {display: "11.5.5", value: "11.5.5"},
+                {display: "11.5.4", value: "11.5.4"},
+                {display: "11.5.3", value: "11.5.3"},
+                {display: "11.5.2", value: "11.5.2"},
+                {display: "11.5.1", value: "11.5.1"},
+                {display: "11.5.0", value: "11.5.0"},
+                {display: "11.4.1", value: "11.4.1"},
+                {display: "11.4.0", value: "11.4.0"},
+                {display: "11.3.0", value: "11.3.0"},
+                {display: "11.2.1", value: "11.2.1"},
+                {display: "11.2.0", value: "11.2.0"},
+                {display: "11.1.0", value: "11.1.0"},
+                {display: "11.0.0", value: "11.0.0"}
+            ];
+
+            var BigIpBlade = [
+                {display: "4.6.4", value: "4.6.4"},
+                {display: "4.6.3", value: "4.6.3"},
+                {display: "4.6.2", value: "4.6.2"},
+                {display: "4.6.1", value: "4.6.1"},
+                {display: "4.6.0", value: "4.6.0"},
+                {display: "4.5.9", value: "4.5.9"},
+                {display: "4.5.13", value: "4.5.13"},
+                {display: "4.5.12", value: "4.5.12"},
+                {display: "4.5.11", value: "4.5.11"},
+                {display: "4.5.10", value: "4.5.10"},
+                {display: "4.5 ptf7", value: "4.5 ptf7"},
+                {display: "4.5 ptf6", value: "4.5 ptf6"},
+                {display: "4.5 ptf5", value: "4.5 ptf5"},
+                {display: "4.5 ptf4", value: "4.5 ptf4"},
+                {display: "4.2.3 ptf1", value: "4.2.3 ptf1"},
+                {display: "4.2.3", value: "4.2.3"},
+                {display: "4.2.2", value: "4.2.2"},
+                {display: "4.2.1 ptf1", value: "4.2.1 ptf1"},
+                {display: "4.2.1", value: "4.2.1"},
+                {display: "4.2.0 ptf10", value: "4.2.0 ptf10"}
+            ];
+
+            var BipIpDns = [
+                {display: "13.1.0", value: "13.1.0"},
+                {display: "13.0.0", value: "13.0.0"},
+                {display: "12.1.3", value: "12.1.3"},
+                {display: "12.1.2", value: "12.1.2"},
+                {display: "12.1.1", value: "12.1.1"},
+                {display: "12.1.0", value: "12.1.0"},
+                {display: "12.0.0", value: "12.0.0"}
+            ];
+
+            var BigIpDnsVe = [
+                {display: "13.1.0", value: "13.1.0"},
+                {display: "13.0.0", value: "13.0.0"},
+                {display: "12.1.3", value: "12.1.3"},
+                {display: "12.1.2", value: "12.1.2"},
+                {display: "12.1.1", value: "12.1.1"},
+                {display: "12.1.0", value: "12.1.0"},
+                {display: "12.0.0", value: "12.0.0"}
+            ];
+
+            var BigIpEdge = [
+                {display: "13.1.0", value: "13.1.0"},
+                {display: "13.0.0", value: "13.0.0"},
+                {display: "12.1.3", value: "12.1.3"},
+                {display: "12.1.2", value: "12.1.2"},
+                {display: "12.1.1", value: "12.1.1"},
+                {display: "12.1.0", value: "12.1.0"},
+                {display: "12.0.0", value: "12.0.0"},
+                {display: "11.6.3", value: "11.6.3"},
+                {display: "11.6.2", value: "11.6.2"},
+                {display: "11.6.1", value: "11.6.1"},
+                {display: "11.6.0", value: "11.6.0"},
+                {display: "11.5.2", value: "11.5.2"},
+                {display: "11.5.5", value: "11.5.5"},
+                {display: "11.5.1", value: "11.5.1"},
+                {display: "11.5.0", value: "11.5.0"},
+                {display: "11.4.1", value: "11.4.1"},
+                {display: "11.4.0", value: "11.4.0"},
+                {display: "11.3.0", value: "11.3.0"},
+                {display: "EQX", value: "EQX"},
+                {display: "11.2.1", value: "11.2.1"},
+                {display: "11.2.0", value: "11.2.0"},
+                {display: "11.1.0", value: "11.1.0"},
+                {display: "11.0.0", value: "11.0.0"},
+                {display: "10.2.3", value: "10.2.3"},
+                {display: "10.2.4", value: "10.2.4"},
+                {display: "10.2.2", value: "10.2.2"},
+                {display: "10.2.1", value: "10.2.1"},
+                {display: "10.2.0", value: "10.2.0"},
+                {display: "10.1.0", value: "10.1.0"}
+            ];
+
+            var BigIpGtm = [
+                {display: "11.6.3", value: "11.6.3"},
+                {display: "11.6.2", value: "11.6.2"},
+                {display: "11.6.1", value: "11.6.1"},
+                {display: "11.6.0", value: "11.6.0"},
+                {display: "11.5.5", value: "11.5.5"},
+                {display: "11.5.4", value: "11.5.4"},
+                {display: "11.5.3", value: "11.5.3"},
+                {display: "11.5.2", value: "11.5.2"},
+                {display: "11.5.1", value: "11.5.1"},
+                {display: "11.5.0", value: "11.5.0"},
+                {display: "11.4.1", value: "11.4.1"},
+                {display: "11.4.0", value: "11.4.0"},
+                {display: "11.3.0", value: "11.3.0"},
+                {display: "11.2.1", value: "11.2.1"},
+                {display: "11.2.0", value: "11.2.0"},
+                {display: "11.1.0", value: "11.1.0"},
+                {display: "11.0.0", value: "11.0.0"},
+                {display: "10.2.4", value: "10.2.4"},
+                {display: "10.2.3", value: "10.2.3"},
+                {display: "10.2.2", value: "10.2.2"},
+                {display: "10.2.1", value: "10.2.1"},
+                {display: "10.2.0", value: "10.2.0"},
+                {display: "10.1.0", value: "10.1.0"},
+                {display: "10.0.1", value: "10.0.1"},
+                {display: "10.0.0", value: "10.0.0"},
+                {display: "9.4.8", value: "9.4.8"},
+                {display: "9.4.7", value: "9.4.7"},
+                {display: "9.4.6", value: "9.4.6"},
+                {display: "9.4.5", value: "9.4.5"},
+                {display: "9.4.4", value: "9.4.4"},
+                {display: "9.4.3", value: "9.4.3"},
+                {display: "9.4.2", value: "9.4.2"},
+                {display: "9.4.1", value: "9.4.1"},
+                {display: "9.4.0", value: "9.4.0"},
+                {display: "9.3.1", value: "9.3.1"},
+                {display: "9.3.0", value: "9.3.0"},
+                {display: "9.2.5", value: "9.2.5"},
+                {display: "9.2.4", value: "9.2.4"},
+                {display: "9.2.3", value: "9.2.3"},
+                {display: "9.2.2", value: "9.2.2"},
+                {display: "9.0.0", value: "9.0.0"}
+            ];
+
+            var BigIpGtmVe = [
+                {display: "11.6.3", value: "11.6.3"},
+                {display: "11.6.2", value: "11.6.2"},
+                {display: "11.6.1", value: "11.6.1"},
+                {display: "11.6.0", value: "11.6.0"},
+                {display: "11.5.5", value: "11.5.5"},
+                {display: "11.5.4", value: "11.5.4"},
+                {display: "11.5.3", value: "11.5.3"},
+                {display: "11.5.2", value: "11.5.2"},
+                {display: "11.5.1", value: "11.5.1"},
+                {display: "11.5.0", value: "11.5.0"},
+                {display: "11.4.1", value: "11.4.1"},
+                {display: "11.4.0", value: "11.4.0"},
+                {display: "11.3.0", value: "11.3.0"},
+                {display: "11.2.1", value: "11.2.1"},
+                {display: "11.2.0", value: "11.2.0"},
+                {display: "11.1.0", value: "11.1.0"},
+                {display: "11.0.0", value: "11.0.0"},
+                {display: "10.2.4", value: "10.2.4"},
+                {display: "10.2.3", value: "10.2.3"}
+            ];
+
+            var BigIpLc = [
+                {display: "13.1.0", value: "13.1.0"},
+                {display: "13.0.0", value: "13.0.0"},
+                {display: "12.1.3", value: "12.1.3"},
+                {display: "12.1.2", value: "12.1.2"},
+                {display: "12.1.1", value: "12.1.1"},
+                {display: "12.1.0", value: "12.1.0"},
+                {display: "12.0.0", value: "12.0.0"},
+                {display: "11.6.3", value: "11.6.3"},
+                {display: "11.6.2", value: "11.6.2"},
+                {display: "11.6.1", value: "11.6.1"},
+                {display: "11.6.0", value: "11.6.0"},
+                {display: "11.5.5", value: "11.5.5"},
+                {display: "11.5.4", value: "11.5.4"},
+                {display: "11.5.3", value: "11.5.3"},
+                {display: "11.5.2", value: "11.5.2"},
+                {display: "11.5.1", value: "11.5.1"},
+                {display: "11.5.0", value: "11.5.0"},
+                {display: "11.4.1", value: "11.4.1"},
+                {display: "11.4.0", value: "11.4.0"},
+                {display: "11.3.0", value: "11.3.0"},
+                {display: "11.2.1", value: "11.2.1"},
+                {display: "11.2.0", value: "11.2.0"},
+                {display: "11.1.0", value: "11.1.0"},
+                {display: "11.0.0", value: "11.0.0"},
+                {display: "10.2.4", value: "10.2.4"},
+                {display: "10.2.3", value: "10.2.3"},
+                {display: "10.2.2", value: "10.2.2"},
+                {display: "10.2.1", value: "10.2.1"},
+                {display: "10.2.0", value: "10.2.0"},
+                {display: "10.1.0", value: "10.1.0"},
+                {display: "10.0.1", value: "10.0.1"},
+                {display: "10.0.0", value: "10.0.0"},
+                {display: "9.4.8", value: "9.4.8"},
+                {display: "9.4.7", value: "9.4.7"},
+                {display: "9.4.6", value: "9.4.6"},
+                {display: "9.4.5", value: "9.4.5"},
+                {display: "9.4.4", value: "9.4.4"},
+                {display: "9.4.3", value: "9.4.3"},
+                {display: "9.4.2", value: "9.4.2"},
+                {display: "9.4.1", value: "9.4.1"},
+                {display: "9.4.0", value: "9.4.0"},
+                {display: "9.3.1", value: "9.3.1"},
+                {display: "9.3.0", value: "9.3.0"},
+                {display: "9.2.5", value: "9.2.5"},
+                {display: "9.2.4", value: "9.2.4"},
+                {display: "9.2.3", value: "9.2.3"},
+                {display: "9.2.2", value: "9.2.2"},
+                {display: "9.0.0", value: "9.0.0"},
+                {display: "4.6.4", value: "4.6.4"},
+                {display: "4.6.3", value: "4.6.3"},
+                {display: "4.6.2", value: "4.6.2"},
+                {display: "4.6.14.6.1"},
+                {display: "4.6.04.6.0"},
+                {display: "4.5.94.5.9"},
+                {display: "4.5.144.5.14"},
+                {display: "4.5.134.5.13"},
+                {display: "4.5.124.5.12"},
+                {display: "4.5.114.5.11"},
+                {display: "4.5.104.5.10"},
+                {display: "4.5.04.5.0"},
+                {display: "4.5 ptf84.5 ptf8"},
+                {display: "4.5 ptf74.5 ptf7"},
+                {display: "4.5 ptf64.5 ptf6"},
+                {display: "4.5 ptf54.5 ptf5"},
+                {display: "4.5 ptf44.5 ptf4"},
+                {display: "4.5 ptf34.5 ptf3"},
+                {display: "4.5 ptf24.5 ptf2"},
+                {display: "4.5 ptf14.5 ptf1"},
+                {display: "4.3.04.3.0"},
+                {display: "4.3 ptf24.3 ptf2"},
+                {display: "4.3 ptf14.3 ptf1"}
+            ];
+
+            var BigIpLtm = [
+                {display: "13.1.0", value: "13.1.0" },
+                {display: "13.0.0", value: "13.0.0" },
+                {display: "12.1.3", value: "12.1.3" },
+                {display: "12.1.2", value: "12.1.2" },
+                {display: "12.1.1", value: "12.1.1" },
+                {display: "12.1.0", value: "12.1.0" },
+                {display: "12.0.0", value: "12.0.0" },
+                {display: "11.6.3", value: "11.6.3" },
+                {display: "11.6.2", value: "11.6.2" },
+                {display: "11.6.1", value: "11.6.1" },
+                {display: "11.6.0", value: "11.6.0" },
+                {display: "11.5.5", value: "11.5.5" },
+                {display: "11.5.4", value: "11.5.4" },
+                {display: "11.5.3", value: "11.5.3" },
+                {display: "11.5.2", value: "11.5.2" },
+                {display: "11.5.1", value: "11.5.1" },
+                {display: "11.5.0", value: "11.5.0" },
+                {display: "11.4.1", value: "11.4.1" },
+                {display: "11.4.0", value: "11.4.0" },
+                {display: "11.3.0", value: "11.3.0" },
+                {display: "11.2.1", value: "11.2.1" },
+                {display: "11.2.0", value: "11.2.0" },
+                {display: "11.1.0", value: "11.1.0" },
+                {display: "11.0.0", value: "11.0.0" },
+                {display: "10.2.4", value: "10.2.4" },
+                {display: "10.2.3", value: "10.2.3" },
+                {display: "10.2.2", value: "10.2.2" },
+                {display: "10.2.1", value: "10.2.1" },
+                {display: "10.2.0", value: "10.2.0" },
+                {display: "10.1.2", value: "10.1.2" },
+                {display: "10.1.0", value: "10.1.0" },
+                {display: "10.0.1", value: "10.0.1" },
+                {display: "10.0.0", value: "10.0.0" },
+                {display: "9.6.1", value: "9.6.1" },
+                {display: "9.6.0", value: "9.6.0" },
+                {display: "9.4.8", value: "9.4.8" },
+                {display: "9.4.7", value: "9.4.7" },
+                {display: "9.4.6", value: "9.4.6" },
+                {display: "9.4.5", value: "9.4.5" },
+                {display: "9.4.4", value: "9.4.4" },
+                {display: "9.4.3", value: "9.4.3" },
+                {display: "9.4.2", value: "9.4.2" },
+                {display: "9.4.1", value: "9.4.1" },
+                {display: "9.4.0", value: "9.4.0" },
+                {display: "9.3.1", value: "9.3.1" },
+                {display: "9.3.0", value: "9.3.0" },
+                {display: "9.2.5", value: "9.2.5" },
+                {display: "9.2.4", value: "9.2.4" },
+                {display: "9.2.3", value: "9.2.3" },
+                {display: "9.2.2", value: "9.2.2" },
+                {display: "9.2.0", value: "9.2.0" },
+                {display: "9.1.3", value: "9.1.3" },
+                {display: "9.1.2", value: "9.1.2" },
+                {display: "9.1.1", value: "9.1.1" },
+                {display: "9.1.0", value: "9.1.0" },
+                {display: "9.0.5", value: "9.0.5" },
+                {display: "9.0.4", value: "9.0.4" },
+                {display: "9.0.3", value: "9.0.3" },
+                {display: "9.0.2", value: "9.0.2" },
+                {display: "9.0.1", value: "9.0.1" },
+                {display: "9.0.0", value: "9.0.0" }
+
+            ];
+
+            var BigIpLtmVe = [
+                {display: "13.1.0", value: "13.1.0" },
+                {display: "13.0.0", value: "13.0.0" },
+                {display: "12.1.3", value: "12.1.3" },
+                {display: "12.1.2", value: "12.1.2" },
+                {display: "12.1.1", value: "12.1.1" },
+                {display: "12.1.0", value: "12.1.0" },
+                {display: "12.0.0", value: "12.0.0" },
+                {display: "11.6.3", value: "11.6.3" },
+                {display: "11.6.2", value: "11.6.2" },
+                {display: "11.6.1", value: "11.6.1" },
+                {display: "11.6.0", value: "11.6.0" },
+                {display: "11.5.5", value: "11.5.5" },
+                {display: "11.5.4", value: "11.5.4" },
+                {display: "11.5.3", value: "11.5.3" },
+                {display: "11.5.2", value: "11.5.2" },
+                {display: "11.5.1", value: "11.5.1" },
+                {display: "11.5.0", value: "11.5.0" },
+                {display: "11.4.1", value: "11.4.1" },
+                {display: "11.4.0", value: "11.4.0" },
+                {display: "11.3.0", value: "11.3.0" },
+                {display: "11.2.1", value: "11.2.1" },
+                {display: "11.2.0", value: "11.2.0" },
+                {display: "11.1.0", value: "11.1.0" },
+                {display: "11.0.0", value: "11.0.0" },
+                {display: "10.2.4", value: "10.2.4" },
+                {display: "10.2.3", value: "10.2.3" },
+                {display: "10.2.2", value: "10.2.2" },
+                {display: "10.2.1", value: "10.2.1" },
+                {display: "10.2.0", value: "10.2.0" },
+                {display: "10.1.0", value: "10.1.0" },
+                {display: "10.0.1", value: "10.0.1" }
+            ];
+
+            var BigIpMsm = [
+                {display: "13.1.0", value: "13.1.0" },
+                {display: "13.0.0", value: "13.0.0" },
+                {display: "12.1.3", value: "12.1.3" },
+                {display: "12.1.2", value: "12.1.2" },
+                {display: "12.1.1", value: "12.1.1" },
+                {display: "12.1.0", value: "12.1.0" },
+                {display: "12.0.0", value: "12.0.0" },
+                {display: "11.6.3", value: "11.6.3" },
+                {display: "11.6.2", value: "11.6.2" },
+                {display: "11.6.1", value: "11.6.1" },
+                {display: "11.6.0", value: "11.6.0" },
+                {display: "11.5.2", value: "11.5.2" },
+                {display: "11.5.5", value: "11.5.5" },
+                {display: "11.5.1", value: "11.5.1" },
+                {display: "11.5.0", value: "11.5.0" },
+                {display: "11.4.1", value: "11.4.1" },
+                {display: "11.4.0", value: "11.4.0" },
+                {display: "11.3.0", value: "11.3.0" },
+                {display: "11.2.1", value: "11.2.1" },
+                {display: "11.2.0", value: "11.2.0" },
+                {display: "11.1.0", value: "11.1.0" },
+                {display: "11.0.0", value: "11.0.0" },
+                {display: "10.2.4", value: "10.2.4" },
+                {display: "10.2.3", value: "10.2.3" },
+                {display: "10.2.2", value: "10.2.2" },
+                {display: "10.2.1", value: "10.2.1" },
+                {display: "10.2.0", value: "10.2.0" },
+                {display: "10.1.0", value: "10.1.0" }
+            ];
+
+            var BigIpPem = [
+                {display: "13.1.0", value: "13.1.0" },
+                {display: "13.0.0", value: "13.0.0" },
+                {display: "12.1.3", value: "12.1.3" },
+                {display: "12.1.2", value: "12.1.2" },
+                {display: "12.1.1", value: "12.1.1" },
+                {display: "12.1.0", value: "12.1.0" },
+                {display: "12.0.0", value: "12.0.0" },
+                {display: "11.6.3", value: "11.6.3" },
+                {display: "11.6.2", value: "11.6.2" },
+                {display: "11.6.1", value: "11.6.1" },
+                {display: "11.6.0", value: "11.6.0" },
+                {display: "11.5.5", value: "11.5.5" },
+                {display: "11.5.4", value: "11.5.4" },
+                {display: "11.5.3", value: "11.5.3" },
+                {display: "11.5.2", value: "11.5.2" },
+                {display: "11.5.1", value: "11.5.1" },
+                {display: "11.5.0", value: "11.5.0" },
+                {display: "11.4.1", value: "11.4.1" },
+                {display: "11.4.0", value: "11.4.0" },
+                {display: "11.3.0", value: "11.3.0" }
+            ];
+
+            var BigIpPemVe = [
+                {display: "13.1.0", value: "13.1.0" },
+                {display: "13.0.0", value: "13.0.0" },
+                {display: "12.1.3", value: "12.1.3" },
+                {display: "12.1.2", value: "12.1.2" },
+                {display: "12.1.1", value: "12.1.1" },
+                {display: "12.1.0", value: "12.1.0" },
+                {display: "12.0.0", value: "12.0.0" },
+                {display: "11.6.3", value: "11.6.3" },
+                {display: "11.6.2", value: "11.6.2" },
+                {display: "11.6.1", value: "11.6.1" },
+                {display: "11.6.0", value: "11.6.0" },
+                {display: "11.5.5", value: "11.5.5" },
+                {display: "11.5.4", value: "11.5.4" },
+                {display: "11.5.3", value: "11.5.3" },
+                {display: "11.5.2", value: "11.5.2" },
+                {display: "11.5.1", value: "11.5.1" },
+                {display: "11.5.0", value: "11.5.0" },
+                {display: "11.4.1", value: "11.4.1" },
+                {display: "11.4.0", value: "11.4.0" },
+                {display: "11.3.0", value: "11.3.0" }
+            ];
+
+            var BigIpPsm = [
+                {display: "13.1.0", value: "13.1.0" },
+                {display: "13.0.0", value: "13.0.0" },
+                {display: "12.1.3", value: "12.1.3" },
+                {display: "12.1.2", value: "12.1.2" },
+                {display: "12.1.1", value: "12.1.1" },
+                {display: "12.1.0", value: "12.1.0" },
+                {display: "12.0.0", value: "12.0.0" },
+                {display: "11.6.3", value: "11.6.3" },
+                {display: "11.6.2", value: "11.6.2" },
+                {display: "11.6.1", value: "11.6.1" },
+                {display: "11.6.0", value: "11.6.0" },
+                {display: "11.5.5", value: "11.5.5" },
+                {display: "11.5.4", value: "11.5.4" },
+                {display: "11.5.3", value: "11.5.3" },
+                {display: "11.5.2", value: "11.5.2" },
+                {display: "11.5.1", value: "11.5.1" },
+                {display: "11.5.0", value: "11.5.0" },
+                {display: "11.4.1", value: "11.4.1" },
+                {display: "11.4.0", value: "11.4.0" },
+                {display: "11.3.0", value: "11.3.0" },
+                {display: "11.2.1", value: "11.2.1" },
+                {display: "11.2.0", value: "11.2.0" },
+                {display: "11.1.0", value: "11.1.0" },
+                {display: "11.0.0", value: "11.0.0" },
+                {display: "10.2.3", value: "10.2.3" },
+                {display: "10.2.2", value: "10.2.2" },
+                {display: "10.2.1", value: "10.2.1" },
+                {display: "10.2.0", value: "10.2.0" },
+                {display: "10.1.0", value: "10.1.0" },
+                {display: "10.0.1", value: "10.0.1" },
+                {display: "10.0.0", value: "10.0.0" },
+                {display: "9.4.8", value: "9.4.8" },
+                {display: "9.4.7", value: "9.4.7" },
+                {display: "9.4.6", value: "9.4.6" },
+                {display: "9.4.5", value: "9.4.5" },
+                {display: "9.4.4", value: "9.4.4" },
+                {display: "9.4.3", value: "9.4.3" },
+                {display: "9.4.2", value: "9.4.2" }
+            ];
+
+            var BigIpSam = [
+                {display: "10.2.3", value: "10.2.3" },
+                {display: "18.0.0", value: "8.0.0" }
+            ];
+
+            var BigIpWaf = [
+                {display: "13.1.0", value: "13.1.0" }
+            ];
+
+            var BigIpWam = [
+                {display: "11.3.0", value: "11.3.0" },
+                {display: "11.2.1", value: "11.2.1" },
+                {display: "11.2.0", value: "11.2.0" },
+                {display: "11.1.0", value: "11.1.0" },
+                {display: "11.0.0", value: "11.0.0" },
+                {display: "10.2.4", value: "10.2.4" },
+                {display: "10.2.3", value: "10.2.3" },
+                {display: "10.2.2", value: "10.2.2" },
+                {display: "10.2.1", value: "10.2.1" },
+                {display: "10.2.0", value: "10.2.0" },
+                {display: "10.1.0", value: "10.1.0" },
+                {display: "10.0.1", value: "10.0.1" },
+                {display: "10.0.0", value: "10.0.0" },
+                {display: "9.4.8", value: "9.4.8" },
+                {display: "9.4.7", value: "9.4.7" },
+                {display: "9.4.6", value: "9.4.6" },
+                {display: "9.4.5", value: "9.4.5" },
+                {display: "9.4.4", value: "9.4.4" },
+                {display: "9.4.3", value: "9.4.3" },
+                {display: "9.4.2", value: "9.4.2" },
+                {display: "9.4.1", value: "9.4.1" },
+                {display: "9.4.0", value: "9.4.0" }
+            ];
+
+            var BigIpWamVe = [
+                {display: "11.3.0", value: "11.3.0" },
+                {display: "11.2.1", value: "11.2.1" },
+                {display: "11.2.0", value: "11.2.0" },
+                {display: "11.1.0", value: "11.1.0" },
+                {display: "10.2.4", value: "10.2.4" }
+            ];
+
+            var BigIpWom = [
+                {display: "11.3.0", value: "11.3.0" },
+                {display: "11.2.1", value: "11.2.1" },
+                {display: "11.2.0", value: "11.2.0" },
+                {display: "11.1.0", value: "11.1.0" },
+                {display: "11.0.0", value: "11.0.0" },
+                {display: "10.2.4", value: "10.2.4" },
+                {display: "10.2.3", value: "10.2.3" },
+                {display: "10.2.2", value: "10.2.2" },
+                {display: "10.2.1", value: "10.2.1" },
+                {display: "10.2.0", value: "10.2.0" },
+                {display: "10.1.0", value: "10.1.0" },
+                {display: "10.0.1", value: "10.0.1" },
+                {display: "10.0.0", value: "10.0.0" }
+            ];
+
+            var BigIpWomVe = [
+                {display: "11.3.0", value: "11.3.0" },
+                {display: "11.2.1", value: "11.2.1" },
+                {display: "11.2.0", value: "11.2.0" },
+                {display: "11.1.0", value: "11.1.0" },
+                {display: "11.0.0", value: "11.0.0" },
+                {display: "10.2.4", value: "10.2.4" },
+            ];
+
+            var BigIqAccess = [
+                {display: "5.4.0", value: "5.4.0" },
+                {display: "5.3.0", value: "5.3.0" },
+                {display: "5.2.0", value: "5.2.0" },
+                {display: "5.1.0", value: "5.1.0" },
+                {display: "5.0.0", value: "5.0.0" }
+            ];
+
+            var BigIqAdc = [
+                {display: "5.4.0", value: "5.4.0" },
+                {display: "5.3.0", value: "5.3.0" },
+                {display: "5.2.0", value: "5.2.0" },
+                {display: "5.1.0", value: "5.1.0" },
+                {display: "5.0.0", value: "5.0.0" },
+                {display: "4.6.0", value: "4.6.0" },
+                {display: "4.5.0", value: "4.5.0" }
+            ];
+
+            var BigIqAdcVe = [
+                {display: "5.4.0", value: "5.4.0" },
+                {display: "5.3.0", value: "5.3.0" },
+                {display: "5.2.0", value: "5.2.0" },
+                {display: "4.6.0", value: "4.6.0" },
+                {display: "4.5.0", value: "4.5.0" }
+            ];
+
+            var BigIqCloud = [
+                {display: "4.5.0", value: "4.5.0"},
+                {display: "4.4.0", value: "4.4.0"},
+                {display: "4.3.0", value: "4.3.0"},
+                {display: "4.2.0", value: "4.2.0"}
+            ];
+
+            var BigIqCloudVe = [
+                {display: "4.5.0", value: "4.5.0"},
+                {display: "4.4.0", value: "4.4.0"},
+                {display: "4.3.0", value: "4.3.0"},
+                {display: "4.2.0", value: "4.2.0"},
+                {display: "4.1.0", value: "4.1.0" },
+                {display: "4.0.0", value: "4.0.0" }
+            ];
+
+            var BigIqCm = [
+                {display: "5.4.0", value: "5.4.0" },
+                {display: "5.3.0", value: "5.3.0" },
+                {display: "5.2.0", value: "5.2.0" },
+                {display: "5.0.0", value: "5.0.0" },
+                {display: "4.6.0", value: "4.6.0" },
+                {display: "4.5.0", value: "4.5.0" }
+            ];
+
+             var BigIqDevice = [
+                {display: "5.4.0", value: "5.4.0" },
+                {display: "5.3.0", value: "5.3.0" },
+                {display: "5.2.0", value: "5.2.0" },
+                {display: "5.1.0", value: "5.1.0" },
+                {display: "5.0.0", value: "5.0.0" },
+                {display: "4.6.0", value: "4.6.0" },
+                {display: "4.5.0", value: "4.5.0" },
+                {display: "4.5.0", value: "4.5.0" },
+                {display: "4.4.0", value: "4.4.0" },
+                {display: "4.3.0", value: "4.3.0" },
+                {display: "4.2.0", value: "4.2.0" }
+            ];
+
+            var BigIqDeviceVe = [
+                {display: "5.4.0", value: "5.4.0"},
+                {display: "5.3.0", value: "5.3.0"},
+                {display: "5.2.0", value: "5.2.0"},
+                {display: "4.6.0", value: "4.6.0"},
+                {display: "4.5.0", value: "4.5.0"},
+                {display: "4.4.0", value: "4.4.0"},
+                {display: "4.3.0", value: "4.3.0"},
+                {display: "4.2.0", value: "4.2.0"}
+            ];
+
+
+            var BigIqFps = [
+                {display: "5.4.0", value: "5.4.0"},
+                {display: "5.3.0", value: "5.3.0"},
+                {display: "5.2.0", value: "5.2.0"},
+                {display: "5.1.0", value: "5.1.0"},
+                {display: "5.0.0", value: "5.0.0"}
+            ];
+
+            var BigIqOrCloudVe = [
+                {display: "1", value: "1" }
+            ];
+
+            var BigIqSecurity = [
+                {display: "5.4.0", value: "5.4.0" },
+                {display: "5.3.0", value: "5.3.0" },
+                {display: "5.2.0", value: "5.2.0" },
+                {display: "5.1.0", value: "5.1.0" },
+                {display: "5.0.0", value: "5.0.0" },
+                {display: "4.6.0", value: "4.6.0" },
+                {display: "4.5.0", value: "4.5.0" },
+                {display: "4.5.0", value: "4.5.0" },
+                {display: "4.4.0", value: "4.4.0" },
+                {display: "4.3.0", value: "4.3.0" },
+                {display: "4.2.0", value: "4.2.0" }
+            ];
+            var BigIqSecurityVe = [
+                {display: "5.4.0", value: "5.4.0" },
+                {display: "5.3.0", value: "5.3.0" },
+                {display: "5.2.0", value: "5.2.0" },
+                {display: "5.1.0", value: "5.1.0" },
+                {display: "5.0.0", value: "5.0.0" },
+                {display: "4.6.0", value: "4.6.0" },
+                {display: "4.5.0", value: "4.5.0" },
+                {display: "4.5.0", value: "4.5.0" },
+                {display: "4.4.0", value: "4.4.0" },
+                {display: "4.3.0", value: "4.3.0" },
+                {display: "4.2.0", value: "4.2.0" },
+                {display: "4.1.0", value: "4.1.0" },
+                {display: "4.0.0", value: "4.0.0" }
+            ];
+
+            var BigIqSystem = [
+                {display: "5.4.0", value: "5.4.0" },
+                {display: "5.3.0", value: "5.3.0" },
+                {display: "5.2.0", value: "5.2.0" },
+                {display: "5.1.0", value: "5.1.0" },
+                {display: "5.0.0", value: "5.0.0" }
+            ];
+
+            var Dashboard = [
+                {display: "3.1.8", value: "3.1.8" },
+                {display: "3.2.5", value: "3.2.5" },
+                {display: "3.3.0.6", value: "3.3.0.6" },
+                {display: "3.4.1.0", value: "3.4.1.0" },
+                {display: "3.5.0.4", value: "3.5.0.4" },
+                {display: "3.6.5.0", value: "3.6.5.0" },
+                {display: "3.7.4.0", value: "3.7.4.0" },
+                {display: "3.8.2.0", value: "3.8.2.0" },
+                {display: "3.9.5.0", value: "3.9.5.0" },
+                {display: "4.0.16.0", value: "4.0.16.0" },
+                {display: "4.1.5.0", value: "4.1.5.0" }
+            ];
+
+            var DataManager = [
+                {display: "3.1.0", value: "3.1.0" },
+                {display: "3.0.2", value: "3.0.2" },
+                {display: "3.0.1", value: "3.0.1" },
+                {display: "3.0.0", value: "3.0.0" },
+                {display: "2.6.1", value: "2.6.1" },
+                {display: "2.6.0", value: "2.6.0" },
+                {display: "2.5.1", value: "2.5.1" },
+                {display: "2.5.0", value: "2.5.0" },
+                {display: "2.0.2", value: "2.0.2" },
+                {display: "2.0.1", value: "2.0.1" },
+                {display: "2.0.0", value: "2.0.0" }
+            ];
+
+            var EnterpriseManager = [
+                {display: "3.1.1", value: "3.1.1" },
+                {display: "3.1.0", value: "3.1.0" },
+                {display: "3.0.0", value: "3.0.0" },
+                {display: "2.3.0", value: "2.3.0" },
+                {display: "2.2.0", value: "2.2.0" },
+                {display: "2.1.0", value: "2.1.0" },
+                {display: "2.0.0", value: "2.0.0" },
+                {display: "1.8.0", value: "1.8.0" },
+                {display: "1.7.0", value: "1.7.0" },
+                {display: "1.6.0", value: "1.6.0" },
+                {display: "1.4.1", value: "1.4.1" },
+                {display: "1.4.0", value: "1.4.0" },
+                {display: "1.2.2", value: "1.2.2" },
+                {display: "1.2.1", value: "1.2.1" },
+                {display: "1.2.0", value: "1.2.0" },
+                {display: "1.0.0", value: "1.0.0" }
+            ];
+
+            var EnterpriseManagerVe = [
+                {display: "3.1.1", value: "3.1.1" },
+                {display: "3.1.0", value: "3.1.0" },
+                {display: "3.0.0", value: "3.0.0" },
+                {display: "2.3.0", value: "2.3.0" },
+                {display: "2.2.0", value: "2.2.0" }
+            ];
+
+            var Eud = [
+                {display: "v-12.2.0", value: "v-12.2.0" },
+                {display: "s-12.0.0", value: "s-12.0.0" },
+                {display: "m-12.8.1", value: "m-12.8.1" }
+            ];
+
+            var F5KubeProxy = [
+                {display: "11.6.0", value: "11.6.0" },
+                {display: "11.5.1", value: "11.5.1" },
+                {display: "11.5.0", value: "11.5.0" }
+            ];
+
+            var F5aasDdos = [
+                {display: "1.0.0", value: "1.0.0" }
+            ];
+
+            var FirePass = [
+                {display: "7.0.0", value: "7.0.0" },
+                {display: "6.1.0", value: "6.1.0" },
+                {display: "6.0.3", value: "6.0.3" },
+                {display: "6.0.2", value: "6.0.2" },
+                {display: "6.0.1", value: "6.0.1" },
+                {display: "6.0.0", value: "6.0.0" },
+                {display: "5.5.2", value: "5.5.2" },
+                {display: "5.5.1", value: "5.5.1" },
+                {display: "5.5.0", value: "5.5.0" },
+                {display: "5.4.2", value: "5.4.2" },
+                {display: "5.4.1", value: "5.4.1" },
+                {display: "5.4.0", value: "5.4.0" },
+                {display: "5.2.2", value: "5.2.2" },
+                {display: "5.2.1", value: "5.2.1" },
+                {display: "5.2.0", value: "5.2.0" },
+                {display: "5.0.0", value: "5.0.0" },
+                {display: "5.0 fp2", value: "5.0 fp2" },
+                {display: "5.0 fp1-3", value: "5.0 fp1-3" },
+                {display: "5.0 fp1", value: "5.0 fp1" },
+                {display: "4.1.1", value: "4.1.1" },
+                {display: "4.1.0", value: "4.1.0" },
+                {display: "4.0.2", value: "4.0.2" },
+                {display: "4.0.1", value: "4.0.1" },
+                {display: "4.0.0", value: "4.0.0" },
+                {display: "3.5.0", value: "3.5.0" },
+                {display: "3.1.0", value: "3.1.0" }
+            ];
+
+            var FirePassVe = [
+                {display: "7.0.1", value: "7.0.1" },
+                {display: "7.0.0", value: "7.0.0" }
+            ];
+
+            var HerculonDdos = [
+                {display: "13.1.0", value: "13.1.0" },
+                {display: "13.0.0", value: "13.0.0" },
+                {display: "12.1.2", value: "12.1.2" },
+                {display: "12.1.1", value: "12.1.1" },
+                {display: "12.1.0", value: "12.1.0" },
+                {display: "12.0.0", value: "12.0.0" }
+            ];
+
+            var HerculonSslo = [
+                {display: "13.1.0", value: "13.1.0" },
+                {display: "13.0.0", value: "13.0.0" },
+                {display: "12.1.2", value: "12.1.2" },
+                {display: "12.1.1", value: "12.1.1" },
+                {display: "12.1.0", value: "12.1.0" },
+                {display: "12.0.0", value: "12.0.0" }
+            ];
+
+            var InternalTraffix = [
+                {display: "All Versions", value: "All Versions" }
+            ];
+
+            var IWorkflow = [
+                {display: "2.3.0", value: "2.3.0" },
+                {display: "2.2.0", value: "2.2.0" },
+                {display: "2.1.0", value: "2.1.0" },
+                {display: "2.0.2", value: "2.0.2" },
+                {display: "2.0.1", value: "2.0.1" },
+                {display: "2.0.0", value: "2.0.0" }
+            ];
+
+            var K8sAspCtlr = [
+                {display: "1.0.0", value: "1.0.0" }
+            ];
+
+            var K8sBigipCtlr = [
+                {display: "1.2.0", value: "1.2.0" },
+                {display: "1.1.1", value: "1.1.1" },
+                {display: "1.1.0", value: "1.1.0" }
+            ];
+
+            var LineRate = [
+                {display: "2.7.0", value: "2.7.0" },
+                {display: "2.6.1", value: "2.6.1" },
+                {display: "2.6.0", value: "2.6.0" },
+                {display: "2.5.2", value: "2.5.2" },
+                {display: "2.5.1", value: "2.5.1" },
+                {display: "2.5.0", value: "2.5.0" },
+                {display: "2.4.3", value: "2.4.3" },
+                {display: "2.4.2", value: "2.4.2" },
+                {display: "2.4.1", value: "2.4.1" },
+                {display: "2.4.0", value: "2.4.0" },
+                {display: "2.3.3", value: "2.3.3" },
+                {display: "2.3.2", value: "2.3.2" },
+                {display: "2.3.1", value: "2.3.1" },
+                {display: "2.3.0", value: "2.3.0" },
+                {display: "2.2.7", value: "2.2.7" },
+                {display: "2.2.5", value: "2.2.5" },
+                {display: "2.2.4", value: "2.2.4" },
+                {display: "2.2.3", value: "2.2.3" },
+                {display: "2.2.2", value: "2.2.2" },
+                {display: "1.6.4", value: "1.6.4" },
+                {display: "1.6.3", value: "1.6.3" },
+                {display: "1.6.2", value: "1.6.2" }
+
+            ];
+
+            var MAM = [
+                {display: "1", value: "1" }
+            ];
+
+            var ManagementPack = [
+                {display: "3.1.2", value: "3.1.2" },
+                {display: "3.1.1", value: "3.1.1" },
+                {display: "3.1.0", value: "3.1.0" },
+                {display: "3.0.0", value: "3.0.0" },
+                {display: "1.0.0", value: "1.0.0" }
+
+            ];
+
+            var MarathonAspCtlr = [
+                {display: "1.0.0", value: "1.0.0" }
+            ];
+
+            var MarathonBigIpCtlr = [
+                {display: "1.1.2", value: "1.1.2" }
+            ];
+
+            var MobileSafe = [
+                {display: "11.4.1", value: "11.4.1" },
+                {display: "11.4.0", value: "11.4.0" }
+            ];
+
+            var MonitoringPack = [
+                {display: "3.2.0", value: "3.2.0" },
+                {display: "3.2.1", value: "3.2.1" },
+                {display: "3.2.2", value: "3.2.2" }
+            ];
+
+            var Openblox = [
+                {display: "2.8.4", value: "2.8.4" },
+                {display: "2.8.5", value: "2.8.5" },
+                {display: "3.2.0", value: "3.2.0" },
+                {display: "3.2.1", value: "3.2.1" },
+                {display: "3.2.2", value: "3.2.2" },
+                {display: "3.2.3", value: "3.2.3" },
+                {display: "3.2.5", value: "3.2.5" },
+                {display: "3.2.6", value: "3.2.6" },
+                {display: "3.2.7", value: "3.2.7" }
+            ];
+            var OpenstackLBaaSPlugin = [
+                {display: "8.1.0", value: "8.1.0" },
+                {display: "8.2.0", value: "8.2.0" },
+                {display: "8.3.6", value: "8.3.6" },
+                {display: "9.1.0", value: "9.1.0" },
+                {display: "9.2.0", value: "9.2.0" },
+                {display: "9.4.0", value: "9.4.0" },
+                {display: "10.1.0", value: "10.1.0" }
+            ];
+
+            var Other = [
+                {display: "S/W Version Missing", value: "S/W Version Missing" }
+            ];
+
+            var Sdc = [
+                {display: "3.2.1", value: "3.2.1" },
+                {display: "3.3.2.0", value: "3.3.2.0" },
+                {display: "3.4.0", value: "3.4.0" },
+                {display: "3.4.1", value: "3.4.1" },
+                {display: "3.5.1", value: "3.5.1" },
+                {display: "3.5.2", value: "3.5.2" },
+                {display: "4.0.0", value: "4.0.0" },
+                {display: "4.0.1", value: "4.0.1" },
+                {display: "4.0.2", value: "4.0.2" },
+                {display: "4.0.5", value: "4.0.5" },
+                {display: "4.1", value: "4.1" },
+                {display: "4.2", value: "4.2" },
+                {display: "4.4", value: "4.4" },
+                {display: "5", value: "5" },
+                {display: "5.1", value: "5.1" }
+            ];
+
+            var TrafficShield = [
+                {display: "3.2.1", value: "3.2.1" },
+                {display: "3.2.0", value: "3.2.0" },
+                {display: "3.1.19", value: "3.1.19" },
+                {display: "3.1.18", value: "3.1.18" },
+                {display: "3.1.1.24-2.4", value: "3.1.1.24-2.4" },
+                {display: "3.1.1.24-2.3", value: "3.1.1.24-2.3" },
+                {display: "3.1.1.24-2.2", value: "3.1.1.24-2.2" },
+                {display: "3.1.1.24-2.1", value: "3.1.1.24-2.1" },
+                {display: "3.1.1.24-2.0", value: "3.1.1.24-2.0" },
+                {display: "3.1.1.24-1.1", value: "3.1.1.24-1.1" },
+                {display: "3.1.1.24", value: "3.1.1.24" },
+                {display: "3.1.1.21", value: "3.1.1.21" },
+                {display: "3.1.1.19", value: "3.1.1.19" },
+                {display: "3.1.1.18-2.0", value: "3.1.1.18-2.0" },
+                {display: "3.1.1.18", value: "3.1.1.18" },
+                {display: "3.1.0", value: "3.1.0" },
+                {display: "3.0.11-scr-cac-1.0", value: "3.0.11-scr-cac-1.0" },
+                {display: "3.0.11.2", value: "3.0.11.2" },
+                {display: "3.0.11", value: "3.0.11" },
+                {display: "3.0.0", value: "3.0.0" },
+                {display: "2.7.0", value: "2.7.0" }
+            ];
+
+            var WanJet = [
+                {display: "5.0.2", value: "5.0.2" },
+                {display: "5.0.1", value: "5.0.1" },
+                {display: "5.0.0", value: "5.0.0" },
+                {display: "4.2.8", value: "4.2.8" },
+                {display: "4.2.7", value: "4.2.7" },
+                {display: "4.2.6", value: "4.2.6" },
+                {display: "4.2.5", value: "4.2.5" },
+                {display: "4.2.4", value: "4.2.4" },
+                {display: "4.2.3", value: "4.2.3" },
+                {display: "4.2.2", value: "4.2.2" },
+                {display: "4.2.16", value: "4.2.16" },
+                {display: "4.2.14", value: "4.2.14" },
+                {display: "4.2.11", value: "4.2.11" },
+                {display: "4.2.10", value: "4.2.10" },
+                {display: "4.2.1", value: "4.2.1" },
+                {display: "4.0.18", value: "4.0.18" },
+                {display: "4.0.17", value: "4.0.17" },
+                {display: "4.0.12", value: "4.0.12" },
+                {display: "4.0.0", value: "4.0.0" },
+                {display: "3.3.2", value: "3.3.2" },
+                {display: "3.2.0", value: "3.2.0" },
+                {display: "3.1.7", value: "3.1.7" },
+                {display: "3.1.20", value: "3.1.20" },
+                {display: "3.1.17", value: "3.1.17" },
+                {display: "3.1.16", value: "3.1.16" },
+                {display: "3.1.15", value: "3.1.15" },
+                {display: "3.1.14", value: "3.1.14" },
+                {display: "3.1.13", value: "3.1.13" },
+                {display: "3.1.12", value: "3.1.12" },
+                {display: "3.1.11", value: "3.1.11" },
+                {display: "3.1.0", value: "3.1.0" },
+                {display: "3.0.2", value: "3.0.2" },
+                {display: "2.1.3", value: "2.1.3" }
+            ];
+
+            var WebAccelerator = [
+                {display: "5.3.1", value: "5.3.1" },
+                {display: "5.2.0", value: "5.2.0" },
+                {display: "5.1.5", value: "5.1.5" },
+                {display: "5.1.4", value: "5.1.4" },
+                {display: "5.1.2", value: "5.1.2" },
+                {display: "5.1.1", value: "5.1.1" },
+                {display: "5.1.0", value: "5.1.0" },
+                {display: "5.0.0", value: "5.0.0" },
+                {display: "4.0.0", value: "4.0.0" }
+            ];
+
+            var WebSafe = [
+                {display: "13.1.0", value: "13.1.0" },
+                {display: "13.0.0", value: "13.0.0" },
+                {display: "12.1.3", value: "12.1.3" },
+                {display: "12.1.2", value: "12.1.2" },
+                {display: "12.1.1", value: "12.1.1" },
+                {display: "12.1.0", value: "12.1.0" },
+                {display: "12.0.0", value: "12.0.0" },
+                {display: "11.6.3", value: "11.6.3" },
+                {display: "11.6.2", value: "11.6.2" },
+                {display: "11.6.1", value: "11.6.1" },
+                {display: "11.6.0", value: "11.6.0" },
+                {display: "11.5.0", value: "11.5.0" },
+                {display: "11.4.1", value: "11.4.1" },
+                {display: "11.4.0", value: "11.4.0" },
+                {display: "11.3.0", value: "11.3.0" },
+                {display: "11.2.1", value: "11.2.1" },
+                {display: "11.2.0", value: "11.2.0" },
+                {display: "11.1.0", value: "11.1.0" },
+                {display: "11.0.0", value: "11.0.0" },
+                {display: "10.2.4", value: "10.2.4" },
+                {display: "SDK", value: "SDK" }
+            ];
+
+            var statusOpen = [
+                {display: "New", value: "New" },
+                {display: "1st Followup", value: "1st Followup" },
+                {display: "2nd Followup", value: "2nd Followup" },
+                {display: "Meeting scheduled", value: "Meeting scheduled" },
+                {display: "Monitor", value: "Monitor" },
+                {display: "Solving", value: "Solving" },
+                {display: "Researching", value: "Researching" },
+                {display: "Resolved", value: "Resolved" },
+                {display: "Pending Reply", value: "Pending Reply" },
+                {display: "Escalated", value: "Escalated" },
+                {display: "Respond", value: "Respond" }
+            ];
+
+            var statusClosed = [
+                {display: "Respond", value: "Respond" },
+                {display: "Closed", value: "Closed" },
+                {display: "Cancelled", value: "Cancelled" }
+            ];
+
+            var statusReopen = [
+                {display: "", value: "" }
+            ];
+
+            //If parent option is changed
+            $("#product").change(function() {
+                var parent = $(this).val(); //get option value from parent  
+                switch(parent){ //using switch compare selected option and populate child
+                    case '3-DNS':
+                        $('#version').attr('disabled', false);
+                        list(threeDNS);
+                        break;
+                    case 'ARX':
+                        $('#version').attr('disabled', false);
+                        list(ARX);
+                        break;
+                    case 'ARX CE':
+                        $('#version').attr('disabled', false);
+                        list(ARXCE);
+                        break;
+                     case 'ARX VE':
+                        $('#version').attr('disabled', false);
+                        list(ARXVE);
+                        break;
+                     case 'ASP':
+                        $('#version').attr('disabled', false);
+                        list(ASP);
+                        break;
+                     case 'BIG-IP (4.X)':
+                        $('#version').attr('disabled', false);
+                        list(BigIp4x);
+                        break;
+                    case 'BIG-IP AAM':
+                        $('#version').attr('disabled', false);
+                        list(BigIpAam);
+                        break;
+                    case 'BIG-IP AAM VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIpAamVe);
+                        break;
+                    case 'BIG-IP AFM':
+                        $('#version').attr('disabled', false);
+                        list(BigIpAfm);
+                        break;
+                    case 'BIG-IP AFM VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIpAfmVe);
+                        break;
+                    case 'BIG-IP APM':
+                        $('#version').attr('disabled', false);
+                        list(BigIpApm);
+                        break;
+                    case 'BIG-IP APM VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIpApmVe);
+                        break;
+                    case 'BIG-IP App Conn':
+                        $('#version').attr('disabled', false);
+                        list(BigIpAppConn);
+                        break;
+                    case 'BIG-IP ASM':
+                        $('#version').attr('disabled', false);
+                        list(BigIpAsm);
+                        break;
+                    case 'BIG-IP ASM VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIpAsmVe);
+                        break;
+                    case 'BIG-IP AVR':
+                        $('#version').attr('disabled', false);
+                        list(BigIpAvr);
+                        break;
+                    case 'BIG-IP AVR VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIpAvrVe);
+                        break;
+                    case 'BIG-IP Blade':
+                        $('#version').attr('disabled', false);
+                        list(BigIpBlade);
+                        break;
+                    case 'BIG-IP DNS':
+                        $('#version').attr('disabled', false);
+                        list(BigIpDns);
+                        break;
+                    case 'BIG-IP DNS VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIpDnsVe);
+                        break;
+                    case 'BIG-IP Edge':
+                        $('#version').attr('disabled', false);
+                        list(BigIpEdge);
+                        break;
+                    case 'BIG-IP GTM':
+                        $('#version').attr('disabled', false);
+                        list(BigIpGtm);
+                        break;
+                    case 'BIG-IP GTM VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIpGtmVe);
+                        break;
+                    case 'BIG-IP LC':
+                        $('#version').attr('disabled', false);
+                        list(BigIpLc);
+                        break;
+                    case 'BIG-IP LTM':
+                        $('#version').attr('disabled', false);
+                        list(BigIpLtm);
+                        break;
+                    case 'BIG-IP LTM VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIpLtmVe);
+                        break;
+                    case 'BIG-IP MSM':
+                        $('#version').attr('disabled', false);
+                        list(BigIpMsm);
+                        break;
+                    case 'BIG-IP PEM':
+                        $('#version').attr('disabled', false);
+                        list(BigIpPemVe);
+                        break;
+                    case 'BIG-IP PEM VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIpPemVe);
+                        break;
+                    case 'BIG-IP PSM':
+                        $('#version').attr('disabled', false);
+                        list(BigIpPsm);
+                        break;
+                    case 'BIG-IP SAM':
+                        $('#version').attr('disabled', false);
+                        list(BigIpSam);
+                        break;
+                    case 'BIG-IP WAF':
+                        $('#version').attr('disabled', false);
+                        list(BigIpWaf);
+                        break;
+                    case 'BIG-IP WAM':
+                        $('#version').attr('disabled', false);
+                        list(BigIpWam);
+                        break;
+                    case 'BIG-IP WAM VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIpWamVe);
+                        break;
+                    case 'BIG-IP WOM':
+                        $('#version').attr('disabled', false);
+                        list(BigIpWom);
+                        break;
+                    case 'BIG-IP WOM VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIpWomVe);
+                        break;
+                    case 'BIG-IQ ACCESS':
+                        $('#version').attr('disabled', false);
+                        list(BigIQAccess);
+                        break;
+                    case 'BIG-IQ ADC':
+                        $('#version').attr('disabled', false);
+                        list(BigIQAdc);
+                        break;
+                    case 'BIG-IQ ADC VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIQAdcVe);
+                        break;
+                    case 'BIG-IQ CLOUD':
+                        $('#version').attr('disabled', false);
+                        list(BigIqCloud);
+                        break;
+                    case 'BIG-IQ CLOUD VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIqCloudVe);
+                        break;
+                    case 'BIG-IQ CM':
+                        $('#version').attr('disabled', false);
+                        list(BigIqCm);
+                        break;
+                    case 'BIG-IQ DEVICE':
+                        $('#version').attr('disabled', false);
+                        list(BigIqDevice);
+                        break;
+                    case 'BIG-IQ DEVICE VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIqDeviceVe);
+                        break;  
+                    case 'BIG-IQ FPS':
+                        $('#version').attr('disabled', false);
+                        list(BigIqFps);
+                        break;
+                    case 'BIG-IQ OR CLOUD VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIqOrCloudVe);
+                        break; 
+                    case 'BIG-IQ SECURITY':
+                        $('#version').attr('disabled', false);
+                        list(BigIqSecurity);
+                        break; 
+                    case 'BIG-IQ SECURITY VE':
+                        $('#version').attr('disabled', false);
+                        list(BigIqSecurityVe);
+                        break; 
+                    case 'BIG-IQ SYSTEM':
+                        $('#version').attr('disabled', false);
+                        list(BigIqSystem);
+                        break;
+                    case 'Dashboard':
+                        $('#version').attr('disabled', false);
+                        list(Dashboard);
+                        break; 
+                    case 'Data Manager':
+                        $('#version').attr('disabled', false);
+                        list(DataManager);
+                        break;
+                    case 'Enterprise Manager':
+                        $('#version').attr('disabled', false);
+                        list(EnterpriseManager);
+                        break; 
+                    case 'Enterprise Manager VE':
+                        $('#version').attr('disabled', false);
+                        list(EnterpriseManagerVe);
+                        break;
+                    case 'EUD':
+                        $('#version').attr('disabled', false);
+                        list(Eud);
+                        break; 
+                    case 'F5-Kube-Proxy':
+                        $('#version').attr('disabled', false);
+                        list(F5KubeProxy);
+                        break;
+                    case 'F5aas-DDoS':
+                        $('#version').attr('disabled', false);
+                        list(F5aasDdos);
+                        break;
+                    case 'FirePass':
+                        $('#version').attr('disabled', false);
+                        list(FirePass);
+                        break;
+                    case 'FirePass VE':
+                        $('#version').attr('disabled', false);
+                        list(FirePassVe);
+                        break;
+                    case 'Herculon DDoS':
+                        $('#version').attr('disabled', false);
+                        list(HerculonDdos);
+                        break;
+                    case 'Herculon SSLO':
+                        $('#version').attr('disabled', false);
+                        list(HerculonSslo);
+                        break;
+                    case 'InternalTraffix':
+                        $('#version').attr('disabled', false);
+                        list(InternalTraffix);
+                        break;
+                    case 'iWorkflow':
+                        $('#version').attr('disabled', false);
+                        list(IWorkflow);
+                        break;
+                    case 'K8S-ASP-Ctlr':
+                        $('#version').attr('disabled', false);
+                        list(K8sAspCtlr);
+                        break;
+                    case 'K8S-BIGIP-Ctlr':
+                        $('#version').attr('disabled', false);
+                        list(K8sBigipCtlr);
+                        break;
+                    case 'LineRate':
+                        $('#version').attr('disabled', false);
+                        list(LineRate);
+                        break;
+                    case 'MAM':
+                        $('#version').attr('disabled', false);
+                        list(MAM);
+                        break;
+                    case 'ManagementPack':
+                        $('#version').attr('disabled', false);
+                        list(ManagementPack);
+                        break;
+                    case 'Marathon-ASP-Ctlr':
+                        $('#version').attr('disabled', false);
+                        list(MarathonAspCtlr);
+                        break;
+                    case 'Marathon-BIGIP-Ctlr':
+                        $('#version').attr('disabled', false);
+                        list(MarathonBigIpCtlr);
+                        break;
+                    case 'MobileSafe':
+                        $('#version').attr('disabled', false);
+                        list(MobileSafe);
+                        break;
+                    case 'Monitoring Pack':
+                        $('#version').attr('disabled', false);
+                        list(MonitoringPack);
+                        break;
+                    case 'Openblox':
+                        $('#version').attr('disabled', false);
+                        list(Openblox);
+                        break;
+                    case 'Openstack LBaaS Plugin':
+                        $('#version').attr('disabled', false);
+                        list(OpenstackLBaaSPlugin);
+                        break;
+                    case 'Other':
+                        $('#version').attr('disabled', false);
+                        list(Other);
+                        break;
+                    case 'SDC':
+                        $('#version').attr('disabled', false);
+                        list(Sdc);
+                        break;
+                    case 'TrafficShield':
+                        $('#version').attr('disabled', false);
+                        list(TrafficShield);
+                        break;
+                    case 'WANJet':
+                        $('#version').attr('disabled', false);
+                        list(WanJet);
+                        break;
+                    case 'WebAccelerator':
+                        $('#version').attr('disabled', false);
+                        list(WebAccelerator);
+                        break;
+                    case 'WebSafe':
+                        $('#version').attr('disabled', false);
+                        list(WebSafe);
+                        break;
+                    default: //default child option is blank
+                        $("#version").html('');
+                        $('#version').attr("disabled", true);
+                        break;
+                }
+            });
+         
+            $("#status").change(function() {
+                var parent = $(this).val(); //get option value from parent 
+                switch(parent){ //using switch compare selected option and populate child
+                    case 'Open':
+                        $('#subStatus').attr('disabled', false);
+                        listSubStatus(statusOpen);
+                        break;
+                    case 'Closed':
+                        $('#subStatus').attr('disabled', false);
+                        listSubStatus(statusClosed);
+                        break;
+                    case 'Closed':
+                       $('#subStatus').attr('disabled', false);
+                       listSubStatus(statusReopen);
+                       break;
+                    default: //default child option is blank
+                        $("#subStatus").html('');
+                        $('#subStatus').attr("disabled", true);
+                        break;
+                }
+
+            });
+
+             var problemStatementTextMax = 80;
+            $('#problemStatement_feedback').html(problemStatementTextMax + ' characters remaining');
+
+            $('#problemStatement').keyup(function() {
+                var keyed = $(this).val().replace(/\n/g, '<br/>');
+                $(problemStatement).html(keyed);
+
+                var problemStatementText_length = $('#problemStatement').val().length;
+                var problemStatementText_remaining = problemStatementTextMax - problemStatementText_length;
+
+                $('#problemStatement_feedback').html(problemStatementText_remaining + ' characters remaining');
+            });
+
+            //case Note remaining chars
+            
+            var caseNoteTextMax = 16000;
+            $('#caseNote_feedback').html(caseNoteTextMax + ' characters remaining');
+
+            $('#caseNote').keyup(function() {
+                var caseNoteText_length = $('#caseNote').val().length;
+                var caseNoteText_remaining = caseNoteTextMax - caseNoteText_length;
+
+                $('#caseNote_feedback').html(caseNoteText_remaining + ' characters remaining');
+            });
+
+                 
+        //function to populate child select box
+        function list(array_list) {
+            $("#version").html(""); //reset child options
+            $("#version").append("<option value='' selected>Please Select Product Version</option>");
+            $(array_list).each(function (i) { //populate child options
+                $("#version").append("<option value="+array_list[i].value+">"+array_list[i].display+"</option>");
+            });
+        }
+
+        //function to populate child select box
+        function listSubStatus(array_list) {
+            $("#subStatus").html(""); //reset child options
+            $("#subStatus").append("<option value='' selected>Please Select Sub Status</option>");
+            $(array_list).each(function (i) { //populate child options
+                $("#subStatus").append("<option value="+array_list[i].value+">"+array_list[i].display+"</option>");
+            });
+        }
+
+    });
+
+    </script>
+
+</head>
+
+<body>
+	<div class="meta-row">
+        <div class="container">
+          <!--  <ul class="nav">
+                <li><a href="//f5.com">F5.com</a></li>
+                <li><a href="//devcentral.f5.com">DevCentral</a></li>
+                <li><a href="//support.f5.com">Support</a></li>
+                <li><a href="//partners.f5.com">Partners</a></li>
+                <li><a href="//f5.com/about-us/careers">Careers</a></li>
+            </ul> -->
+            <span class="scmMessage">&#42; This page is only available during Siebel maintenance and outages</span>
+        </div>
+    </div>
+	
+	<div class="main-row">
+        <div class="container">           
+                <div class="brand">
+                    <img src="https://cdn.f5.com/digital-platforms/images/logo.svg" alt="f5 Networks" height="42" width="47">
+                    <h3>SCM Downtime Portal</h3>
+                </div>
+
+        </div>
+
+    </div>
+	
+	<div class="row">
+
+		<div class="container">
+			
+			<div class="content">
+             <p align="right">
+                 <a href="/siebel/index" style="text-decoration: none">
+                    <img src="../static/images/home.jpg"  alt="Click to home" style="width:50x;height:50px;">
+                 </a>
+              </p>
+               <h2>Create Service Request</h2>
+					<div class="row">
+						<div style="min-height:400px;">
+                        
+                          <form action="/siebel/new" id="maintenance" method="post" class="simple-form" autocomplete="off">
+                            <div class="form-style-1">
+                            {{if .ProcessBegin}}
+                            <table style="border-spacing: 15px;">
+                                <col style="width:70%">
+                                <col style="width:40%">
+                                <col style="width:70%">
+                                <tr><td colspan="3" align="left"><label><span class="required">*</span> &nbsp;Denotes required field </label></td></tr>
+                                <tr>
+                                  <td>
+                                        <label><a href="http://itweb.olympus.f5net.com" target="new" style="text-decoration: none">Serial Number</a></label> 
+                                        <input type="text" autocomplete="off" name="serialNumber" placeholder="Serial Number" tabindex="1">
+                                  </td> 
+                                  <td/>
+                                  <td>
+                                        <label>Account Site <span class="required">*</span></label> 
+                                        <input type="text" name="account"  placeholder="Account" autocomplete="off" required tabindex="2">
+                                  </td> 
+                                </tr>
+
+                                <tr><td><label>Product <span class="required">*</span></label>
+                                      <select id="product"  autocomplete="off" name="product" placeholder="product" required tabindex="3">
+                                        <option value="" disabled selected>Please Select Product...</option>
+                                        <option value="3-DNS">3-DNS</option>
+                                        <option value="ARX">ARX</option>
+                                        <option value="ARX CE">ARX CE</option>
+                                        <option value="ARX VE">ARX VE</option>
+                                        <option value="ASP">ASP</option>
+                                        <option value="BIG-IP (4.X)">BIG-IP (4.X)</option>
+                                        <option value="BIG-IP App Conn">BIG-IP App Conn</option>
+                                        <option value="BIG-IP AAM">BIG-IP AAM</option>
+                                        <option value="BIG-IP AAM VE">BIG-IP AAM VE</option>
+                                        <option value="BIG-IP APM">BIG-IP APM</option>
+                                        <option value="BIG-IP APM VE">BIG-IP APM VE</option>
+                                        <option value="BIG-IP AFM">BIG-IP AFM</option>
+                                        <option value="BIG-IP AFM VE">BIG-IP AFM VE</option>
+                                        <option value="BIG-IP ASM">BIG-IP ASM</option>a
+                                        <option value="BIG-IP ASM VE">BIG-IP ASM VE</option>
+                                        <option value="BIG-IP AVR">BIG-IP AVR</option>
+                                        <option value="BIG-IP AVR VE">BIG-IP AVR VE</option>
+                                        <option value="BIG-IP Blade">BIG-IP Blade</option>
+                                        <option value="BIG-IP DNS">BIG-IP DNS</option>
+                                        <option value="BIG-IP DNS VE">BIG-IP DNS VE</option>
+                                        <option value="BIG-IP EDGE">BIG-IP EDGE</option>
+                                        <option value="BIG-IP GTM">BIG-IP GTM</option>
+                                        <option value="BIG-IP GTM VE">BIG-IP GTM VE</option>
+                                        <option value="BIG-IP LC">BIG-IP LC</option>
+                                        <option value="BIG-IP LTM">BIG-IP LTM</option>
+                                        <option value="BIG-IP LTM VE">BIG-IP LTM VE</option>
+                                        <option value="BIG-IP MSM">BIG-IP MSM</option>
+                                        <option value="BIG-IP PEM VE">BIG-IP PEM VE</option>
+                                        <option value="BIG-IP PEM">BIG-IP PEM</option>
+                                        <option value="BIG-IP PSM">BIG-IP PSM</option>
+                                        <option value="BIG-IP SAM">BIG-IP SAM</option>
+                                        <option value="BIG-IP WAF">BIG-IP WAF</option>
+                                        <option value="BIG-IP WAM">BIG-IP WAM</option>
+                                        <option value="BIG-IP WAM VE">BIG-IP WAM VE</option>
+                                        <option value="BIG-IP WOM">BIG-IP WOM</option>
+                                        <option value="BIG-IP WOM VE">BIG-IP WOM VE</option>
+                                        <option value="BIG-IQ ACCESS">BIG-IQ ACCESS</option>
+                                        <option value="BIG-IQ ADC">BIG-IQ ADC</option>
+                                        <option value="BIG-IQ ADC VE">BIG-IQ ADC VE</option>
+                                        <option value="BIG-IQ CLOUD">BIG-IQ CLOUD</option>
+                                        <option value="BIG-IQ CLOUD VE">BIG-IQ CLOUD VE</option>
+                                        <option value="BIG-IQ CM">BIG-IQ CM</option>
+                                        <option value="BIG-IQ DEVICE">BIG-IQ DEVICE</option>
+                                        <option value="BIG-IQ DEVICE VE">BIG-IQ DEVICE VE</option>
+                                        <option value="BIG-IQ FPS">BIG-IQ FPS</option>
+                                        <option value="BIG-IQ OR CLOUD VE">BIG-IQ OR CLOUD VE</option>
+                                        <option value="BIG-IQ SECURITY">BIG-IQ SECURITY</option>
+                                        <option value="BIG-IQ SECURITY VE">BIG-IQ SECURITY VE</option>
+                                        <option value="BIG-IQ SYSTEM">BIG-IQ SYSTEM</option>
+                                        <option value="Dashboard">Dashboard</option>
+                                        <option value="Data Manager">Data Manager</option>
+                                        <option value="Enterprise Manager">Enterprise Manager</option>
+                                        <option value="Enterprise ManagerVE">Enterprise ManagerVE</option>
+                                        <option value="F5-Kube-Proxy">F5-Kube-Proxy</option>
+                                        <option value="FirePass">FirePass</option>
+                                        <option value="FirePass VE">FirePass VE</option>
+                                        <option value="F5aas-DDoS">F5aas-DDoS</option>
+                                        <option value="Herculon DDoS">Herculon DDoS</option>
+                                        <option value="Herculon SSLO">Herculon SSLO</option>
+                                        <option value="iWorkflow">iWorkflow</option>
+                                        <option value="Internal-Traffix">Internal-Traffix</option>
+                                        <option value="K8S-ASP-Ctlr">K8S-ASP-Ctlr</option>
+                                        <option value="K8S-BIGIP-Ctlr">K8S-BIGIP-Ctlr</option>
+                                        <option value="LineRate">LineRate</option>
+                                        <option value="MAM">MAM</option>
+                                        <option value="Management Pack">Management Pack</option>
+                                        <option value="Marathon-ASP-Ctlr">Marathon-ASP-Ctlr</option>
+                                        <option value="Marathon-BIGIP-Ctlr">Marathon-BIGIP-Ctlr</option>
+                                        <option value="MobileSafe">MobileSafe</option>
+                                        <option value="Monitoring Pack">Monitoring Pack</option>
+                                        <option value="Openblox">Openblox</option>
+                                        <option value="Openstack LBaaS Plugin">Openstack LBaaS Plugin</option>
+                                        <option value="SDC">SDC</option>
+                                        <option value="WebSafe">WebSafe</option>
+                                    </select>
+                                    </td>
+                                    <td/>
+                                    <td>
+                                        <label>Version <span class="required">*</span></label> 
+                                        <select id="version"  autocomplete="off" name="version" disabled required tabindex="4">
+                                          <option value='' disabled selected>Please Select Version...</option>
+                                       </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                        <label>Status <span class="required">*</span></label> 
+                                        <select autocomplete="off" id="status" name="status" required  tabindex="5">
+                                          <option value="" disabled >Please Select Status...</option> 
+                                          <option value="Open" selected>Open</option>
+                                          <option value="Closed" disabled>Closed</option>
+                                          <option value="Reopen" disabled>Reopen</option>
+                                        </select>
+                                  </td> 
+                                  <td/>
+                                  <td>
+                                        <label>Sub Status</label> 
+                                         <!-- <select  autocomplete="off" id="subStatus" name="subStatus" disabled tabindex="6">-->
+                                         <select  autocomplete="off" id="subStatus" name="subStatus"  tabindex="6">
+                                             <!-- <option value='' disabled selected>Please Select Sub Status...</option> -->
+                                             <option value="New" selected>New</option>
+                                          </select>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                        <label>Severity <span class="required">*</span></label> 
+                                         <select  autocomplete="off" name="severity" required tabindex="7">
+                                             <option value="" disabled selected>Please Select Severity...</option> 
+                                             <option value="1 - Site Down">1 - Site Down</option>
+                                             <option value="2 - Site At Risk">2 - Site At Risk</option>
+                                             <option value="3 - Performance Degraded">3 - Performance Degraded</option>
+                                             <option value="4 - General Assistance">4 - General Assistance</option>
+                                         </select>
+                                    </td>
+                                    <td/>
+                                    <td>
+                                        <label>Source <span class="required">*</span></label> 
+                                        <select id="c-3-14" autocomplete="off" name="source" required tabindex="9">
+                                            <option value="" disabled selected>Please Select Source...</option> 
+                                            <option value="CSP">CSP</option>
+                                            <option value="Email">Email</option>
+                                            <option value="iHealth">iHealth</option>
+                                            <option value="Internal">Internal</option>
+                                            <option value="Phone">Phone</option>
+                                         </select>
+                                    </td>
+                                  
+
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                        <label>E-mail Address <span class="required">*</span></label> 
+                                        <input type="text" name="email"  placeholder="Email" autocomplete="off" required tabindex="10">
+                                  </td> 
+                                  <td/>
+                                  <td>
+                                        <label>Phone </label> 
+                                        <input type="text" name="phone" placeholder="Phone" autocomplete="off" tabindex="11">
+                                    </td>
+                                  
+
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                        <label>First Name </label> 
+                                        <input type="text" name="firstName"  placeholder="First Name" autocomplete="off" tabindex="12">
+                                  </td> 
+                                  <td/>
+                                  <td>
+                                        <label>Last Name </label> 
+                                        <input type="text" name="lastName" placeholder="Last Name" autocomplete="off" tabindex="13">
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                  <td colspan="3">
+                                        <label>Problem Statement <span class="required">*</span></label>
+                                        <textarea class="field-long field-textarea" maxlength="80" placeholder="Problem Statement" autocomplete="off" id="problemStatement" style="height:50px" name="problemStatement"  required tabindex="14"></textarea>
+                                        <div id="problemStatement_feedback"></div>
+                                        
+                                  </td>
+                                 
+                                </tr>
+                                <tr>
+                                  <td colspan="3">
+                                        <label>Case Note </label> 
+                                        <textarea  class="field-long field-textarea" maxlength="16000" placeholder="Case Note" autocomplete="off" id="caseNote" name="caseNote" tabindex="15"></textarea>
+                                        <div id="caseNote_feedback"></div>
+                                  </td>
+                                </tr>
+
+                                
+
+                                <tr>
+                                 <td colspan="3"></td>
+                                </tr>
+
+                                <!-- <tr>
+                                    <td>
+                                    <input type="button" class="contentButton" value="Back" onclick="location.href='/siebel/index'"/>
+                                  </td>
+                                   <td/>
+                                    <td>
+                                    <input type="submit" class="contentButton" value="Submit" tabindex="15" />
+                                  </td>
+                                </tr> -->
+                                <tr>
+                                <td/>
+                                <td/>
+                                 <td align="right">
+                                     <input type="submit" class="contentButton" value="Submit" tabindex="16" />
+                                 </td>
+                                </tr>
+                            </table>
+
+                             {{else}}
+                            <span><b><font color="green">Thank you for submitting the case. Your case number is {{.SRNumber}}.</font><b></span>
+                            <br/><br/>
+                            <input type="button" value="Done" class="contentButton" onclick="location.href='/siebel/index'"/>
+                             <br><br>
+                           {{end}}  
+
+                            </div>
+                         </form>
+                        
+                       </div>
+
+                    
+						</div>
+					</div>
+            </div>               
+		</div>
+	</div>
+	
+	
+	
+	<footer id="F5-Footer">
+            <div class="container">
+                <!--<div class="back-to-top"><a><span class="icon-up">&#8203;</span></a></div>-->
+                <ul class="sub-footer legal-text">
+                    <li>© 2018 F5 Networks, Inc. All rights reserved.</li>
+                    
+                </ul>
+            </div>
+        </footer>
+
+	
+	
+</body>
+</html>

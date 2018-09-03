@@ -1,0 +1,15 @@
+ServiceRequestNumber=CA1529445375589
+SerialNumber=chs408509s
+Account=s8537
+Product=BIG-IP AAM VE
+Version=12.1.1
+Status=Open
+SubStatus=New
+Severity=4 - General Assistance
+Source=Internal
+Email=dummy_dv5@f5.com
+Phone=
+FirstName=
+LastName=
+ProblemStatement=Final Test
+CaseNote=final Test

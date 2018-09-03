@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Siebel Maintenance</title>
+<link rel=stylesheet type="text/css" href="../static/css/apm-new.css">
+<link rel=stylesheet type="text/css" href="../static/css/siebel.css">
+
+<style>
+table {
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:first-child {background-color: yellow;}
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(odd) {background-color: lightblue;}
+
+#rcorners {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 10px; 
+    width: 80%;
+    text-align: center;
+    
+    
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript"> 
+          
+          
+
+           function dataLoad(){
+
+               var str = $("#caseNoteTextArea").val();
+              var regex = /<br\s*[\/]?>/gi;
+              str = str.replace(regex, "<br/>")
+              $("#caseNote").html(str);
+          }
+        
+          
+
+    </script>
+</head>
+
+<body onload="dataLoad()">
+
+<div class="meta-row">
+        <div class="container">
+            <!-- <ul class="nav">
+                <li><a href="//f5.com">F5.com</a></li>
+                <li><a href="//devcentral.f5.com">DevCentral</a></li>
+                <li><a href="//support.f5.com">Support</a></li>
+                <li><a href="//partners.f5.com">Partners</a></li>
+                <li><a href="//f5.com/about-us/careers">Careers</a></li>
+            </ul>-->
+            <span class="scmMessage">&#42; This page is only available during Siebel maintenance and outages</span>
+        </div>
+    </div>
+    
+    <div class="main-row">
+        <div class="container">           
+                <div class="brand">
+                    <img src="https://cdn.f5.com/digital-platforms/images/logo.svg" alt="f5 Networks" height="42" width="47">
+                    <h3>SCM Downtime Portal</h3>
+                </div>
+
+        </div>
+
+    </div>
+    
+    <div class="row">
+
+        <div class="container">
+            
+            <div class="content">
+
+               <p align="right">
+                 <a href="/siebel/srindex" style="text-decoration: none">
+                    <img src="../static/images/back.jpg"  alt="Click to home" style="width:50x;height:50px;">
+                 </a>
+
+                <a href="/siebel/index" style="text-decoration: none">
+                    <img src="../static/images/home.jpg"  alt="Click to home" style="width:50x;height:50px;">
+                 </a>
+              </p>
+
+              <div id="rcorners" align="center">
+
+              <h1 style="color:LightSalmon;align:center;">Service Request Number: {{.SRNumber}}</h1>
+
+
+                <table id="srdetail" class="display" style="width:100%">
+                  {{ if ne .SerialNumber "" }}
+                   <tr>
+                    <td><b>Serial Number</b>:</td>
+                    <td style="padding-left: 50px;">{{.SerialNumber}}</td>
+                  </tr>
+                  {{end}}
+                  {{ if ne .Account "" }}
+                  <tr>
+                    <td><b>Account</b>:</td>
+                    <td style="padding-left: 50px;">{{.Account}}</td>
+                  </tr>
+                  {{end}}
+                  {{ if ne .Product "" }}
+                  <tr>
+                    <td><b>Product</b>:</td>
+                    <td style="padding-left: 50px;">{{.Product}}</td>
+                  </tr>
+                  {{end}}
+                  {{ if ne .Version "" }}
+                  <tr>
+                    <td><b>Product Version</b>:</td>
+                    <td style="padding-left: 50px;">{{.Version}}</td>
+                  </tr>
+                  {{end}}
+                  {{ if ne .Status "" }}
+                  <tr>
+                    <td><b>Status</b>:</td>
+                    <td style="padding-left: 50px;">{{.Status}}</td>
+                  </tr>
+                  {{end}}
+                  {{ if ne .SubStatus "" }}
+                  <tr>
+                    <td><b>Sub Status</b>:</td>
+                    <td style="padding-left: 50px;">{{.SubStatus}}</td>
+                  </tr>
+                  {{end}}
+                  {{ if ne .Severity "" }}
+                  <tr>
+                    <td><b>Severity</b>:</td>
+                    <td style="padding-left: 50px;">{{.Severity}}</td>
+                  </tr>
+                  {{end}}
+                  {{ if ne .Source "" }}
+                  <tr>
+                    <td><b>Source</b>:</td>
+                    <td style="padding-left: 50px;">{{.Source}}</td>
+                  </tr>
+                  {{end}}
+                  {{ if ne .Email "" }}
+                  <tr>
+                    <td><b>Email Address</b>:</td>
+                    <td style="padding-left: 50px;">{{.Email}}</td>
+                  </tr>
+                  {{end}}
+				  {{ if ne .CaseCreatedBy "" }}
+                  <tr>
+                    <td><b>Created By</b>:</td>
+                    <td style="padding-left: 50px;">{{.CaseCreatedBy}}</td>
+                  </tr>
+                  {{end}}
+                  {{ if ne .Phone "" }}
+                  <tr>
+                    <td><b>Phone</b>:</td>
+                    <td style="padding-left: 50px;">{{.Phone}}</td>
+                  </tr>
+                  {{end}}
+                  {{ if ne .FirstName "" }}
+                  <tr>
+                    <td><b>First Name</b>:</td>
+                    <td style="padding-left: 50px;">{{.FirstName}}</td>
+                  </tr>
+                  {{end}}
+                  {{ if ne .LastName "" }}
+                  <tr>
+                    <td><b>Last Name</b>:</td>
+                    <td style="padding-left: 50px;">{{.LastName}}</td>
+                  </tr>
+                  {{end}}
+                  {{ if ne .ProblemStatement "" }}
+                  <tr>
+                    <td><b>Problem Statement</b>:</td>
+                    <td style="padding-left: 50px;">{{.ProblemStatement}}</td>
+                  </tr>
+                  {{end}}
+                  {{ if ne .CaseNote "" }}
+                  <tr>
+                    <td><b>Case Note</b>:</td>
+                    <td style="padding-left: 50px;"> 
+                         <div style="height: 300px; overflow:auto;" id="caseNote">
+                        </div>
+                    </td>
+                  </tr>
+                  {{end}}
+                  
+                        
+            </table>
+            <textarea id="caseNoteTextArea" style="display:none;"> {{.CaseNote}}</textarea>
+
+         </div>               
+        </div>
+    </div>
+    
+    
+    
+    <footer id="F5-Footer">
+            <div class="container">
+                <!--<div class="back-to-top"><a><span class="icon-up">&#8203;</span></a></div>-->
+                <ul class="sub-footer legal-text">
+                    <li>© 2018 F5 Networks, Inc. All rights reserved.</li>
+                    
+                </ul>
+            </div>
+        </footer>
+       
+
+</body>
+
+</html>

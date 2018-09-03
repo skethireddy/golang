@@ -1,0 +1,9 @@
+# to run this program
+
+go run main.go <<propertied file path>>>
+eg: go run main.go -configFile="d:\\Dev\\GoLang\\src\\GoWeb\\SiebelMaintenance\\config\\siebelMaintenance.config"
+
+Enter activedirectory password for stg: 4himY467kl
+
+//active dirctory stg password: 4himY467kl
+//active dirctory prod password: 4herY467kl

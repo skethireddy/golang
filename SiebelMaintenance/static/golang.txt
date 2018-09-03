@@ -1,0 +1,35 @@
+Go is a procedural, object-oriented programing language. 
+
+Go complies very quickly
+
+Don't need any 3rd party library for example http, json, web framework etc.
+
+Go provdies high performance like c/c++, super efficient concurreny handling like Java and fun to code like Phython/perl.
+
+
+
+Go has goroutines. Language  supports concurrency easily. But, most of the modern programming languages(like Java,) supports multi-threading. But the real problem comes with concurrent execution, threading-locking, race conditions and deadlocks. Those things make it hard to create a multi-threading application on those languages. 
+
+
+
+Go syntax is very stable.
+
+Code written in Go is easy to maintain.
+ 
+ No classes, 
+
+Processors understand binaries. Generally, when you build an application using Java or other JVM-based languages when you compile your project, it compiles the human readable code to byte-code which can be understood by JVM or other virtual machines that run on top of underlying OS. While execution, VM interprets those bytecodes and convert them to the binaries that processors can understand
+
+While on the other side, C/C++ does not execute on VMs and that removes one step from the execution cycle and increases the performance. It directly compiles the human readable code to binaries.
+
+Go brings best of both the worlds.
+
+
+
+
+
+Go runs directly on underlying hardware
+
+Go was born out of frustration with existing languages. 
+
+One had to choose either efficient compilation

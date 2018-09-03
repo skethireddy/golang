@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Siebel Maintenance</title>
+<link rel=stylesheet type="text/css" href="/static/css/apm-new.css">
+<link rel=stylesheet type="text/css" href="/static/css/siebel.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript"> 
+          
+          $(document).ready(function() {
+            //case Note remaining chars
+            var caseNoteTextMax = 16000;
+            $('#caseNote_feedback').html(caseNoteTextMax + ' characters remaining');
+
+            $('#caseNote').keyup(function() {
+                var caseNoteText_length = $('#caseNote').val().length;
+                var caseNoteText_remaining = caseNoteTextMax - caseNoteText_length;
+
+                $('#caseNote_feedback').html(caseNoteText_remaining + ' characters remaining');
+            });
+
+          });
+
+    </script>
+</head>
+
+<body>
+    <div class="meta-row">
+        <div class="container">
+            <!--<ul class="nav">
+                <li><a href="//f5.com">F5.com</a></li>
+                <li><a href="//devcentral.f5.com">DevCentral</a></li>
+                <li><a href="//support.f5.com">Support</a></li>
+                <li><a href="//partners.f5.com">Partners</a></li>
+                <li><a href="//f5.com/about-us/careers">Careers</a></li>
+            </ul>-->
+            <span class="scmMessage">&#42; This page is only available during Siebel maintenance and outages</span>
+        </div>
+    </div>
+    
+    <div class="main-row">
+        <div class="container">           
+                <div class="brand">
+                    <img src="https://cdn.f5.com/digital-platforms/images/logo.svg" alt="f5 Networks" height="42" width="47">
+                    <h3>SCM Downtime Portal</h3>
+                </div>
+
+        </div>
+
+    </div>
+    
+    <div class="row">
+
+        <div class="container">
+            
+            <div class="content">
+              <p align="right">
+                 <a href="/siebel/index" style="text-decoration: none">
+                    <img src="../static/images/home.jpg"  alt="Click to home" style="width:50x;height:50px;">
+                 </a>
+              </p>
+                <h2>Update Service Request</h2>
+                    <div class="row">
+                        <div style="min-height:400px;">
+
+                          <form action="/siebel/update" id="maintenance" method="post" class="simple-form" autocomplete="off">
+                            <div class="form-style-1">
+                            {{if .ProcessBegin}}
+                            <table style="border-spacing: 15px;">
+                                <col style="width:70%">
+                                <col style="width:40%">
+                                <col style="width:70%">
+                                
+                                <tr>
+                                  <td>
+                                        <label>SR Number <span class="required">*</span></label> 
+                                        <input type="text" autocomplete="off" name="srNumber" placeholder="SR Number" required tabindex="1">
+                                  </td> 
+                                  <td/>
+                                  <td>
+                                        <label>Severity</label> 
+                                         <select  autocomplete="off" name="severity" tabindex="2">
+                                             <option value="" disabled selected>Please Select Severity...</option> 
+                                             <option value="1 - Site Down">1 - Site Down</option>
+                                             <option value="2 - Site At Risk">2 - Site At Risk</option>
+                                             <option value="3 - Performance Degraded">3 - Performance Degraded</option>
+                                             <option value="4 - General Assistance">4 - General Assistance</option>
+                                         </select>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                        <label>E-mail Address <span class="required">*</span></label> 
+                                        <input type="text" name="email"  placeholder="Email" autocomplete="off" required tabindex="3">
+                                  </td> 
+                                  <td/>
+                                  <td>
+                                        <label>Phone </label> 
+                                        <input type="text" name="phone" placeholder="Phone" autocomplete="off" tabindex="4">
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+                                  <td>
+                                        <label>First Name </label> 
+                                        <input type="text" name="firstName"  placeholder="First Name" autocomplete="off" tabindex="5">
+                                  </td> 
+                                  <td/>
+                                  <td>
+                                        <label>Last Name </label> 
+                                        <input type="text" name="lastName" placeholder="Last Name" autocomplete="off" tabindex="6">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                  <td colspan="3">
+                                        <label>Case Note </label> 
+                                        <textarea  class="field-long field-textarea" maxlength="16000" placeholder="Case Note" autocomplete="off" id="caseNote" name="caseNote" required tabindex="15"></textarea>
+                                        <div id="caseNote_feedback"></div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                 <td colspan="3"></td>
+                                </tr>
+                                <tr>
+                                <td/>
+                                <td/>
+                                    <td align="right">
+                                    <input type="submit"  class="contentButton" value="Submit" tabindex="8"/>
+                                  </td>
+                                </tr>
+
+                            </table>
+                             {{else}}
+                            <span><b><font color="green">Thank you for submitting the case. Your case number is {{.SRNumber}}.</font><b></span>
+                            <br/><br/>
+                            <input type="button" class="contentButton" value="Done" onclick="location.href='/siebel/index'"/>
+                             <br><br>
+                           {{end}}  
+
+                            </div>
+                         </form>
+                       </div>
+
+                    
+                        </div>
+                    </div>
+            </div>               
+        </div>
+    </div>
+    
+    
+    
+    <footer id="F5-Footer">
+            <div class="container">
+                <ul class="links">
+                   
+                <!--<div class="back-to-top"><a><span class="icon-up">&#8203;</span></a></div>-->
+                <ul class="sub-footer legal-text">
+                    <li>© 2018 F5 Networks, Inc. All rights reserved.</li>
+                   
+                </ul>
+            </div>
+        </footer>
+
+    
+    
+</body>
+</html>

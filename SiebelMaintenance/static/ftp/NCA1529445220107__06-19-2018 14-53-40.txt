@@ -1,0 +1,15 @@
+ServiceRequestNumber=CA1529445220107
+SerialNumber=chs408509s
+Account=s8537
+Product=BIG-IP AAM
+Version=12.1.3
+Status=Open
+SubStatus=New
+Severity=3 - Performance Degraded
+Source=Internal
+Email=dummy_dv5@yahoo.com
+Phone=9803338266
+FirstName=Pankaj
+LastName=Singh
+ProblemStatement=Final Test
+CaseNote=Final test for portal

@@ -1,0 +1,16 @@
+ServiceRequestNumber=asd
+SerialNumber=
+Account=
+Product=
+Version=
+Status=
+SubStatus=
+Severity=1 - Site Down
+Source=
+Email=asd
+CaseCreatedBy=kethireddy
+Phone=
+FirstName=
+LastName=
+ProblemStatement=
+CaseNote=asd
