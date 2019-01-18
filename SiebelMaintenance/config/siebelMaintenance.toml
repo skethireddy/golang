@@ -14,7 +14,7 @@ Host = "ad-ldap.olympus.f5net.com"
 Port = 389
 UseSSL = false
 BindUser = "_StgSiebelADSIUser"
-BindPassword = "4himY467kl"
+BindPassword = "xxxx"
 
 [siebel]
 ServiceRequestPath = "D:\\Dev\\projects-data\\data\\siebel\\messages\\in\\"
